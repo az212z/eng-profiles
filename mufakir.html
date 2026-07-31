@@ -44,19 +44,28 @@ a{color:inherit;text-decoration:none}
 h2.big{font-size:29px;font-weight:800}
 .lead{color:var(--muted);max-width:150mm;margin-top:6px}
 
-/* COVER */
-.cover{min-height:290mm;display:flex;flex-direction:column}
+/* COVER (dark, artwork background) */
+.cover{min-height:290mm;display:flex;flex-direction:column;background:var(--ink);color:var(--paper)}
+.coverbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.covergrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,16,.92) 6%,rgba(20,19,16,.45) 42%,rgba(20,19,16,.25) 70%,rgba(20,19,16,.55) 100%)}
+.cover .genart{position:absolute;inset:0;background:
+  radial-gradient(circle at 78% 18%,color-mix(in srgb,var(--ac) 36%,transparent),transparent 55%),
+  radial-gradient(circle at 18% 85%,color-mix(in srgb,var(--ac) 26%,transparent),transparent 50%),
+  linear-gradient(160deg,#0E1F19 0%,#123126 55%,#0B1A15 100%)}
+.cover .genart svg{position:absolute;inset-inline-end:-8mm;bottom:-6mm;width:150mm;height:150mm;opacity:.5}
 .cover .top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
-.cover .chip{border:1.5px solid var(--ink);border-radius:999px;padding:4px 16px;font-size:11.5px;font-weight:600}
+.cover .chip{border:1.5px solid rgba(247,244,238,.75);border-radius:999px;padding:4px 16px;font-size:11.5px;font-weight:600}
 .cover .enmark{font-family:var(--fd);font-weight:800;letter-spacing:.34em;font-size:13px;color:var(--ac)}
 .cover .mid{margin:auto 0;position:relative;z-index:2;padding-block:30mm}
 .cover .rule{width:70px;height:4px;background:var(--ac);margin-bottom:18px;transform-origin:inline-start}
 .cover h1{font-size:41px;font-weight:800;line-height:1.35;max-width:160mm}
-.cover h1 .thin{font-weight:300;display:block;font-size:23px;color:var(--muted)}
-.cover .tag{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:18px;margin-top:12px}
-.cover .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;position:relative;z-index:2;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted)}
-.cover .foot b{color:var(--ink)}
-.bignum{position:absolute;inset-inline-end:8mm;bottom:22mm;font-family:var(--fd);font-weight:800;font-size:130px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--hair);z-index:1;letter-spacing:.03em}
+.cover h1 .thin{font-weight:300;display:block;font-size:23px;color:rgba(247,244,238,.75)}
+.cover .tag{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:18px;margin-top:12px;
+  text-shadow:0 1px 14px rgba(20,19,16,.55)}
+.cover .tag.lightac{color:color-mix(in srgb,var(--ac) 55%,#fff)}
+.cover .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;position:relative;z-index:2;border-top:1px solid rgba(247,244,238,.3);padding-top:12px;font-size:12px;color:rgba(247,244,238,.8)}
+.cover .foot b{color:var(--paper)}
+.bignum{position:absolute;inset-inline-end:8mm;bottom:22mm;font-family:var(--fd);font-weight:800;font-size:130px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(247,244,238,.3);z-index:1;letter-spacing:.03em}
 
 /* about + experience */
 .word{border-inline-start:4px solid var(--ac);padding:4px 18px;margin-top:10px;font-size:15px;max-width:158mm}
@@ -78,6 +87,15 @@ h2.big{font-size:29px;font-weight:800}
 .sno{font-family:var(--fd);font-weight:800;color:var(--ac);font-size:14px;min-width:30px;padding-top:2px}
 .srow b{font-family:var(--fd);font-size:15.5px;display:block}
 .srow div span{color:var(--muted);font-size:12.5px;display:block}
+
+/* works banner */
+.banner{position:relative;height:52mm;border-radius:14px;overflow:hidden;margin-bottom:22px}
+.banner img{width:100%;height:100%;object-fit:cover}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,color-mix(in srgb,var(--ac) 55%,rgba(20,19,16,.75)),transparent 65%);mix-blend-mode:multiply}
+.banner .bcap{position:absolute;bottom:10px;inset-inline-start:16px;z-index:2;color:#fff;font-size:11px;letter-spacing:.22em;font-family:var(--fd);font-weight:700}
+.banner.gen{background:
+  radial-gradient(circle at 80% 20%,color-mix(in srgb,var(--ac) 40%,transparent),transparent 55%),
+  linear-gradient(160deg,#0E1F19,#123126)}
 
 /* works */
 .works{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
@@ -180,7 +198,8 @@ h2.big{font-size:29px;font-weight:800}
 
 <!-- ============ COVER ============ -->
 <section class="sheet cover">
-  <span class="bp"></span>
+  <img class="coverbg" src="img/mufakir.jpg" alt="" /><span class="covergrad"></span>
+  <span class="bp" style="--hair:rgba(247,244,238,.2)"></span>
   <span class="cross" style="top:24mm;inset-inline-start:16mm"></span>
   <span class="cross" style="bottom:42mm;inset-inline-end:20mm"></span>
   <div class="top">
@@ -248,6 +267,7 @@ h2.big{font-size:29px;font-weight:800}
 <!-- ============ WORKS ============ -->
 <section class="sheet">
   <div class="shead"><b>شركة مفكر للاستشارات الهندسية</b><span>سابقة الأعمال</span></div>
+  <figure class="banner rv"><img src="img/mufakir.jpg" alt="" /><span class="bcap en">MUFAKIR</span></figure>
   <div class="rv">
     <p class="klabel"><i></i>سابقة الأعمال</p>
     <h2 class="big">نماذج مما نعمل عليه</h2>
