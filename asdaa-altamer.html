@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>مكتب أصداء التعمير للاستشارات الهندسية · ملف تعريفي</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#F7F4EE; --paper2:#EFEAE0; --ink:#1B1A17; --muted:#77705F;
+  --line:#DCD5C6; --hair:rgba(27,26,23,.16); --ac:#B08A3E;
+  --fd:'Alexandria','Segoe UI',sans-serif; --fb:'IBM Plex Sans Arabic','Segoe UI',Tahoma,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.85;font-size:14px}
+.en{font-family:var(--fd)}
+h1,h2,h3{font-family:var(--fd);line-height:1.45}
+a{color:inherit;text-decoration:none}
+
+/* blueprint motif */
+.bp{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:
+   linear-gradient(var(--hair) 1px,transparent 1px) 0 0/100% 25%,
+   linear-gradient(90deg,var(--hair) 1px,transparent 1px) 0 0/25% 100%;
+  mask:linear-gradient(#000,transparent 78%);-webkit-mask:linear-gradient(#000,transparent 78%);
+  opacity:.22}
+.cross{position:absolute;width:14px;height:14px;color:var(--ac)}
+.cross::before,.cross::after{content:"";position:absolute;background:currentColor}
+.cross::before{inset-inline:0;top:50%;height:1.5px}
+.cross::after{inset-block:0;inset-inline-start:50%;width:1.5px}
+
+/* sheets */
+.sheet{position:relative;max-width:210mm;margin-inline:auto;padding:20mm 18mm;overflow:hidden;background:var(--paper)}
+.sheet + .sheet{border-top:1px solid var(--line)}
+.shead{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:26px;font-size:11.5px}
+.shead b{font-family:var(--fd)}
+.shead span{color:var(--muted)}
+.klabel{display:inline-flex;align-items:center;gap:10px;color:var(--ac);font-family:var(--fd);font-weight:700;font-size:12.5px;margin-bottom:10px}
+.klabel i{font-style:normal;width:34px;height:1.5px;background:var(--ac);display:inline-block;transform-origin:inline-start}
+h2.big{font-size:29px;font-weight:800}
+.lead{color:var(--muted);max-width:150mm;margin-top:6px}
+
+/* COVER */
+.cover{min-height:290mm;display:flex;flex-direction:column}
+.cover .top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.cover .chip{border:1.5px solid var(--ink);border-radius:999px;padding:4px 16px;font-size:11.5px;font-weight:600}
+.cover .enmark{font-family:var(--fd);font-weight:800;letter-spacing:.34em;font-size:13px;color:var(--ac)}
+.cover .mid{margin:auto 0;position:relative;z-index:2;padding-block:30mm}
+.cover .rule{width:70px;height:4px;background:var(--ac);margin-bottom:18px;transform-origin:inline-start}
+.cover h1{font-size:41px;font-weight:800;line-height:1.35;max-width:160mm}
+.cover h1 .thin{font-weight:300;display:block;font-size:23px;color:var(--muted)}
+.cover .tag{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:18px;margin-top:12px}
+.cover .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;position:relative;z-index:2;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted)}
+.cover .foot b{color:var(--ink)}
+.bignum{position:absolute;inset-inline-end:8mm;bottom:22mm;font-family:var(--fd);font-weight:800;font-size:130px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--hair);z-index:1;letter-spacing:.03em}
+
+/* about + experience */
+.word{border-inline-start:4px solid var(--ac);padding:4px 18px;margin-top:10px;font-size:15px;max-width:158mm}
+.vmrow{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:22px;border-top:1px solid var(--line)}
+.vmrow>div{padding-top:14px}
+.vmrow h3{color:var(--ac);font-size:15.5px;margin-bottom:4px}
+.exp{margin-top:26px}
+.exrow{display:grid;grid-template-columns:1fr 1.4fr;gap:16px;align-items:baseline;padding-block:11px;border-bottom:1px solid var(--line)}
+.exrow b{font-family:var(--fd);font-size:14.5px}
+.exrow span{color:var(--muted);font-size:12.5px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.stat{border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:center;background:#fff}
+.stat b{font-family:var(--fd);font-weight:800;font-size:27px;color:var(--ac);display:block;line-height:1.35}
+.stat span{color:var(--muted);font-size:11.5px}
+
+/* services rows */
+.srow{display:flex;gap:16px;align-items:flex-start;padding-block:14px;position:relative}
+.srow .sline{position:absolute;bottom:0;inset-inline:0;height:1px;background:var(--line);transform-origin:inline-start}
+.sno{font-family:var(--fd);font-weight:800;color:var(--ac);font-size:14px;min-width:30px;padding-top:2px}
+.srow b{font-family:var(--fd);font-size:15.5px;display:block}
+.srow div span{color:var(--muted);font-size:12.5px;display:block}
+
+/* works */
+.works{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
+.wcard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:16px;position:relative;min-height:150px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
+.wcard:hover{transform:translateY(-5px);box-shadow:0 18px 34px -18px rgba(27,26,23,.25)}
+.wtag{align-self:flex-start;background:var(--paper2);border-radius:999px;font-size:10.5px;color:var(--muted);padding:2px 10px;margin-bottom:8px}
+.wcard b{font-family:var(--fd);font-size:14.5px}
+.wcard p{color:var(--muted);font-size:11.8px;margin-top:4px;line-height:1.7}
+.wno{position:absolute;bottom:10px;inset-inline-end:14px;font-family:var(--fd);font-weight:800;color:transparent;-webkit-text-stroke:1px var(--hair);font-size:26px}
+
+/* city page */
+.citywrap{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;margin-top:8px}
+.cityname{font-family:var(--fd);font-weight:800;font-size:64px;line-height:1.2}
+.cityname small{display:block;font-size:16px;font-weight:500;color:var(--muted)}
+.citymeta{margin-top:14px;border-top:1px solid var(--line)}
+.citymeta div{display:flex;gap:12px;padding-block:10px;border-bottom:1px solid var(--line);font-size:13px}
+.citymeta dt{color:var(--muted);min-width:86px}
+.map{position:relative;aspect-ratio:1/1.05;border:1px solid var(--line);border-radius:14px;background:
+  radial-gradient(circle at 52% 46%,rgba(0,0,0,.045),transparent 55%),
+  linear-gradient(var(--hair) 1px,transparent 1px) 0 0/100% 12.5%,
+  linear-gradient(90deg,var(--hair) 1px,transparent 1px) 0 0/12.5% 100%,#FBF9F4;overflow:hidden}
+.map .ring{position:absolute;inset-inline-start:50%;top:44%;width:120px;height:120px;border:1.5px solid var(--ac);border-radius:50%;transform:translate(50%,-50%);opacity:.4}
+.map .ring.r2{width:190px;height:190px;opacity:.2}
+.map .pin{position:absolute;inset-inline-start:50%;top:44%;transform:translate(50%,-50%);text-align:center}
+.map .pin svg{width:34px;height:34px;color:var(--ac);filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
+.map .pin b{display:block;font-family:var(--fd);font-size:13px;background:var(--ink);color:var(--paper);border-radius:999px;padding:2px 12px;margin-top:4px;white-space:nowrap}
+.map .lbl{position:absolute;bottom:12px;inset-inline-start:14px;font-size:10.5px;color:var(--muted);letter-spacing:.2em}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px 28px;margin-top:26px;position:relative;overflow:hidden}
+.contact .cp{position:absolute;inset:0;opacity:.1;background:
+  linear-gradient(rgba(247,244,238,.5) 1px,transparent 1px) 0 0/100% 25%,
+  linear-gradient(90deg,rgba(247,244,238,.5) 1px,transparent 1px) 0 0/25% 100%}
+.contact h2{color:var(--ac);font-size:21px;margin-bottom:12px;position:relative}
+.crows{display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;position:relative;font-size:13.5px}
+.crow{display:flex;gap:10px}
+.crow dt{color:var(--ac);min-width:104px;font-size:12px;padding-top:2px}
+.sig{display:flex;justify-content:space-between;align-items:center;margin-top:20px;color:var(--muted);font-size:11px;border-top:1px solid var(--line);padding-top:10px}
+
+/* ---------- motion (screen only) ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}
+.hlx{display:block;overflow:hidden}
+.hlx>span{display:inline-block;transform:translateY(112%);transition:transform 1s var(--ease)}
+.play .hlx>span{transform:none}
+.play .cover .rule{animation:grow 1s var(--ease) .2s both}
+@keyframes grow{from{transform:scaleX(0)}}
+.sline{transform:scaleX(0);transition:transform .9s var(--ease) .15s}
+.rv.in .sline{transform:scaleX(1)}
+.klabel i{transform:scaleX(0);transition:transform .7s var(--ease) .1s}
+.rv.in .klabel i,.play .klabel i{transform:none}
+.map .ring{animation:pulse 3s ease-out infinite}
+.map .ring.r2{animation-delay:1.5s}
+@keyframes pulse{0%{transform:translate(50%,-50%) scale(.7);opacity:.5}100%{transform:translate(50%,-50%) scale(1.15);opacity:0}}
+.cross{animation:blink 3.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:.9}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .rv{opacity:1!important;transform:none!important}
+  .hlx>span{transform:none!important}
+  .sline{transform:none!important}
+}
+
+/* ---------- mobile ---------- */
+@media (max-width:760px){
+  .sheet{padding:14mm 7vw}
+  .cover{min-height:100svh}
+  .cover h1{font-size:29px}
+  .bignum{font-size:72px;bottom:34mm}
+  .vmrow,.crows{grid-template-columns:1fr}
+  .works{grid-template-columns:1fr 1fr}
+  .citywrap{grid-template-columns:1fr}
+  .cityname{font-size:44px}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .stat b{font-size:20px}
+  .exrow{grid-template-columns:1fr;gap:2px}
+}
+@media (max-width:460px){.works{grid-template-columns:1fr}}
+
+/* ---------- print / PDF ---------- */
+@page{size:A4;margin:0}
+@media print{
+  body{background:#fff}
+  .sheet{width:210mm;height:296mm;max-width:none;padding:16mm 16mm;page-break-after:always;border:none!important}
+  .sheet:last-child{page-break-after:auto}
+  .cover{min-height:0;height:296mm}
+  .rv{opacity:1!important;transform:none!important}
+  .hlx>span{transform:none!important}
+  .sline{transform:none!important}
+  .klabel i{transform:none!important}
+  .cross,.map .ring{animation:none!important}
+  .wcard:hover{transform:none;box-shadow:none}
+  .stats{margin-top:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="sheet cover">
+  <span class="bp"></span>
+  <span class="cross" style="top:24mm;inset-inline-start:16mm"></span>
+  <span class="cross" style="bottom:42mm;inset-inline-end:20mm"></span>
+  <div class="top">
+    <span class="chip">ملف تعريفي · <span class="en">2026</span></span>
+    <span class="enmark">ASDAA ALTAMER</span>
+  </div>
+  <div class="mid">
+    <div class="rule"></div>
+    <h1>
+      <span class="hlx"><span>أصداء التعمير</span></span>
+      <span class="thin hlx"><span>مكتب أصداء التعمير للاستشارات الهندسية</span></span>
+    </h1>
+    <p class="tag hlx"><span>صدى الإتقان في كل مشروع</span></p>
+  </div>
+  <span class="bignum en" aria-hidden="true">4.9</span>
+  <div class="foot">
+    <span><b>الرياض</b> · حي المهدية، شارع السيل</span>
+    <span>تقييم <b class="en">4.9</b> على خرائط قوقل</span>
+    <span class="en">2026</span>
+  </div>
+</section>
+
+<!-- ============ ABOUT + EXPERIENCE ============ -->
+<section class="sheet">
+  <div class="shead"><b>مكتب أصداء التعمير للاستشارات الهندسية</b><span>من نحن · الخبرات</span></div>
+
+  <div class="rv">
+    <p class="klabel"><i></i>كلمة افتتاحية</p>
+    <p class="word">نضع بين أيديكم ملفنا التعريفي، وفيه من نحن، وما نتقنه، وكيف نعمل. نؤمن أن كل مشروع يبدأ بثقة، وأن الثقة تُبنى بالإتقان والوضوح والالتزام.</p>
+  </div>
+
+  <div class="rv d1" style="margin-top:26px">
+    <p class="klabel"><i></i>من نحن</p>
+    <h2 class="big">مكتب هندسي سعودي، من الرياض وإليها</h2>
+    <p class="lead">مكتب أصداء التعمير للاستشارات الهندسية يعمل من حي المهدية، شارع السيل في الرياض، ويقدم حلولًا هندسية متكاملة من التصميم حتى التسليم، وفق كود البناء السعودي والأنظمة المحلية. حاز ثقة عملائه بتقييم <b class="en">4.9</b> على خرائط قوقل، وهي ثقة نجددها في كل مشروع.</p>
+    <div class="vmrow">
+      <div><h3>رؤيتنا</h3><p class="lead" style="max-width:none">أن نكون خيارًا أول في قطاع الاستشارات الهندسية بالمملكة، بحلول ترتقي إلى تطلعات رؤية 2030.</p></div>
+      <div><h3>رسالتنا</h3><p class="lead" style="max-width:none">خدمات هندسية دقيقة وموثوقة تحقق تطلعات عملائنا وتحمي استثماراتهم، بالتزام بالجودة والمواعيد.</p></div>
+    </div>
+  </div>
+
+  <div class="exp rv d1">
+    <p class="klabel"><i></i>خبراتنا وتخصصاتنا</p>
+    <div class="exrow rv"><b>الهندسة المعمارية</b><span>تصميم وواجهات وهوية عمرانية</span></div><div class="exrow rv"><b>الهندسة الإنشائية</b><span>أنظمة إنشائية آمنة واقتصادية</span></div><div class="exrow rv"><b>الكهرباء والميكانيكا</b><span>أنظمة MEP متكاملة</span></div><div class="exrow rv"><b>المساحة والرفع المساحي</b><span>دقة القياس أساس كل قرار</span></div><div class="exrow rv"><b>السلامة والاشتراطات</b><span>توافق كامل مع اشتراطات الدفاع المدني</span></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat rv"><b class="en" data-count="4.9" data-dec="1">4.9</b><span>تقييم عملائنا على قوقل</span></div>
+    <div class="stat rv d1"><b>الرياض</b><span>نخدم الرياض وما حولها</span></div>
+    <div class="stat rv d2"><b>شامل</b><span>من الفكرة حتى التسليم</span></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sheet">
+  <div class="shead"><b>مكتب أصداء التعمير للاستشارات الهندسية</b><span>خدماتنا</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>خدماتنا</p>
+    <h2 class="big">منظومة خدمات تغطي المشروع كاملًا</h2>
+  </div>
+  <div style="margin-top:14px"><div class="srow rv"><span class="sno en">01</span><div><b>التصميم المعماري والإنشائي</b><span>مخططات متكاملة تُراعي وظيفة المبنى وهويته، وفق كود البناء السعودي.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">02</span><div><b>الإشراف الهندسي على التنفيذ</b><span>متابعة ميدانية دقيقة وضبط جودة ومطابقة للمخططات المعتمدة.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">03</span><div><b>رخص البناء والتعاملات البلدية</b><span>إنهاء الرخص والتقارير أمام الجهات البلدية بسرعة وموثوقية.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">04</span><div><b>التقارير الفنية وشهادات الإتمام</b><span>فحص فني معتمد وإصدار التقارير والشهادات النظامية.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">05</span><div><b>التصميم الداخلي والديكور</b><span>حلول داخلية تجمع الجمال والوظيفة للمساكن والمكاتب والمعارض.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">06</span><div><b>الدراسات والاستشارات الهندسية</b><span>دراسات فنية تسبق قرار البناء وتحمي الاستثمار.</span></div><i class="sline"></i></div></div>
+  <p class="lead rv" style="margin-top:22px">لكل خدمة نطاق عمل واضح وتسعير شفاف يُتفق عليه قبل البدء، ومخرجات محددة يعرفها العميل سلفًا.</p>
+</section>
+
+<!-- ============ WORKS ============ -->
+<section class="sheet">
+  <div class="shead"><b>مكتب أصداء التعمير للاستشارات الهندسية</b><span>سابقة الأعمال</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>سابقة الأعمال</p>
+    <h2 class="big">نماذج مما نعمل عليه</h2>
+    <p class="lead">تتنوع أعمالنا بين السكني والتجاري والإشراف والفحص الفني. هذه أبرز مجالات مشاريعنا:</p>
+  </div>
+  <div class="works"><div class="wcard rv d0"><span class="wtag">تصميم وإشراف</span><b>فلل سكنية خاصة</b><p>من المخطط الأولي حتى تسليم المفتاح، بواجهات تعبّر عن أصحابها.</p><span class="wno en">01</span></div><div class="wcard rv d1"><span class="wtag">تصميم وإشراف</span><b>عمائر سكنية واستثمارية</b><p>استغلال أمثل للمساحات ورفع للعائد الاستثماري دون مساس بالجودة.</p><span class="wno en">02</span></div><div class="wcard rv d2"><span class="wtag">تصميم</span><b>مبانٍ تجارية ومعارض</b><p>واجهات وهويات معمارية تخدم النشاط التجاري وتجذب العميل.</p><span class="wno en">03</span></div><div class="wcard rv d0"><span class="wtag">إشراف</span><b>إشراف على مشاريع قائمة</b><p>ضبط تنفيذ وجودة لمشاريع صُممت لدى جهات أخرى.</p><span class="wno en">04</span></div><div class="wcard rv d1"><span class="wtag">فحص واعتماد</span><b>تقارير فنية وشهادات</b><p>تقارير سلامة إنشائية وشهادات إتمام معتمدة لدى الجهات.</p><span class="wno en">05</span></div><div class="wcard rv d2"><span class="wtag">تصميم وتنفيذ</span><b>تصميم داخلي وديكور</b><p>مساحات داخلية للمساكن والمكاتب تليق بأصحابها.</p><span class="wno en">06</span></div></div>
+</section>
+
+<!-- ============ CITY + LOCATION ============ -->
+<section class="sheet">
+  <div class="shead"><b>مكتب أصداء التعمير للاستشارات الهندسية</b><span>المدينة والموقع</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>موقعنا</p>
+  </div>
+  <div class="citywrap">
+    <div class="rv">
+      <p class="cityname">الرياض<small>حي المهدية، شارع السيل</small></p>
+      <div class="citymeta">
+        <div><dt>نطاق الخدمة</dt><dd>الرياض والمناطق المحيطة بها</dd></div>
+        <div><dt>الاستجابة</dt><dd>رد سريع عبر واتساب خلال ساعات العمل</dd></div>
+        <div><dt>المعاينة</dt><dd>زيارات ميدانية للمواقع داخل الرياض</dd></div>
+        <div><dt>قوقل ماب</dt><dd>أصداء التعمير · تقييم <b class="en">4.9</b></dd></div>
+      </div>
+    </div>
+    <div class="map rv d1">
+      <span class="ring"></span><span class="ring r2"></span>
+      <span class="pin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <b>أصداء التعمير</b>
+      </span>
+      <span class="lbl en">الرياض · GRID</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="sheet">
+  <div class="shead"><b>مكتب أصداء التعمير للاستشارات الهندسية</b><span>تواصل معنا</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>الخطوة التالية</p>
+    <h2 class="big">مشروعك يستحق بداية صحيحة</h2>
+    <p class="lead">تواصل معنا وسنستمع لتفاصيل مشروعك ونقترح المسار الهندسي الأنسب، بوضوح كامل في النطاق والتكلفة والمدة.</p>
+  </div>
+  <div class="contact rv d1">
+    <span class="cp"></span>
+    <h2>بيانات التواصل</h2>
+    <div class="crows">
+      <div class="crow"><dt>الجوال</dt><dd class="en" dir="ltr">050 463 3714</dd></div>
+      <div class="crow"><dt>واتساب</dt><dd class="en" dir="ltr">wa.me/966504633714</dd></div>
+      <div class="crow"><dt>العنوان</dt><dd>حي المهدية، شارع السيل، الرياض</dd></div>
+      <div class="crow"><dt>الموقع الإلكتروني</dt><dd class="en" dir="ltr">asdaaaltamer.com</dd></div>
+      <div class="crow"><dt>خرائط قوقل</dt><dd>أصداء التعمير · <span class="en">4.9</span></dd></div>
+      <div class="crow"><dt>أوقات العمل</dt><dd>الأحد إلى الخميس</dd></div>
+    </div>
+    <div class="sig"><span>مكتب أصداء التعمير للاستشارات الهندسية · ملف تعريفي 2026</span><span class="enmark" style="font-size:10px">ASDAA ALTAMER</span></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  'use strict';
+  document.body.classList.add('play');
+  var els=document.querySelectorAll('.rv');
+  try{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  }catch(e){ els.forEach(function(el){ el.classList.add('in'); }); }
+  setTimeout(function(){ els.forEach(function(el){ el.classList.add('in'); }); },2600);
+  // count-up
+  var cs=document.querySelectorAll('[data-count]');
+  function run(el){
+    var t=parseFloat(el.getAttribute('data-count')),d=parseInt(el.getAttribute('data-dec')||'0',10),s=null,D=1400;
+    function f(ts){ if(!s)s=ts; var p=Math.min((ts-s)/D,1); el.textContent=(t*(1-Math.pow(1-p,3))).toFixed(d); if(p<1)requestAnimationFrame(f); }
+    requestAnimationFrame(f);
+    setTimeout(function(){ el.textContent=t.toFixed(d); },D+300);
+  }
+  try{
+    var c=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(e.target); c.unobserve(e.target);} }); },{threshold:.5});
+    cs.forEach(function(el){ el.textContent='0'; c.observe(el); });
+  }catch(e){}
+  setTimeout(function(){ cs.forEach(function(el){ el.textContent=parseFloat(el.getAttribute('data-count')).toFixed(parseInt(el.getAttribute('data-dec')||'0',10)); }); },4000);
+})();
+</script>
+</body>
+</html>
