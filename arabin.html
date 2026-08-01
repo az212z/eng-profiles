@@ -54,7 +54,7 @@ a{color:inherit;text-decoration:none}
 .shead span{color:var(--muted)}
 .pfoot{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);color:var(--muted);font-size:10.5px}
 .pfoot .en{font-weight:700;color:var(--ink)}
-.ghost{position:absolute;top:12mm;inset-inline-end:10mm;font-family:var(--fd);font-weight:800;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1.2px var(--hair);letter-spacing:.04em;pointer-events:none}
+.ghost{position:absolute;top:30mm;inset-inline-end:13mm;font-family:var(--fd);font-weight:800;font-size:52px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(27,26,23,.12);letter-spacing:.04em;pointer-events:none}
 .klabel{display:inline-flex;align-items:center;gap:10px;color:var(--ac);font-family:var(--fd);font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:12px}
 .klabel i{font-style:normal;width:34px;height:1.5px;background:var(--ac);display:inline-block;transform-origin:inline-start}
 h2.big{font-size:30px;font-weight:800;letter-spacing:0;line-height:1.4}
@@ -91,6 +91,13 @@ h2.big{font-size:30px;font-weight:800;letter-spacing:0;line-height:1.4}
 .toc-row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
 .toc-row .pg{font-family:var(--fd);font-weight:700;color:var(--muted);font-size:12.5px}
 .word{border-inline-start:4px solid var(--ac);padding:4px 18px;margin-top:10px;font-size:14.5px;max-width:158mm}
+
+/* glance strip */
+.glance{display:grid;grid-template-columns:repeat(4,1fr);margin-top:26px;border-block:1px solid var(--ink)}
+.glance>div{padding:13px 6px;text-align:center;display:flex;flex-direction:column;gap:2px}
+.glance>div+div{border-inline-start:1px solid var(--line)}
+.glance em{font-style:normal;font-size:10px;letter-spacing:.1em;color:var(--muted);font-family:var(--fd);font-weight:700}
+.glance b{font-family:var(--fd);font-weight:800;font-size:16px;color:var(--ac)}
 
 /* about */
 .vmrow{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:20px;border-top:1px solid var(--line)}
@@ -148,7 +155,7 @@ h2.big{font-size:30px;font-weight:800;letter-spacing:0;line-height:1.4}
   radial-gradient(circle at 80% 20%,color-mix(in srgb,var(--ac) 40%,transparent),transparent 55%),
   linear-gradient(160deg,#0E1F19,#123126)}
 .works{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px}
-.wcard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:15px;position:relative;min-height:140px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
+.wcard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:15px 15px 30px;position:relative;min-height:140px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
 .wcard.feat{grid-column:span 2;background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .wcard.feat b{color:var(--paper)}
 .wcard.feat p{color:rgba(247,244,238,.75)}
@@ -178,9 +185,18 @@ h2.big{font-size:30px;font-weight:800;letter-spacing:0;line-height:1.4}
   linear-gradient(90deg,rgba(247,244,238,.5) 1px,transparent 1px) 0 0/25% 100%}
 .contact h2{color:var(--ac);font-size:20px;margin-bottom:12px;position:relative}
 .crows{display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;position:relative;font-size:13.5px}
-.crow{display:flex;gap:10px}
+.crow{display:flex;gap:10px;align-items:flex-start}
+.crow dd{flex:1;line-height:1.7}
 .crow dt{color:var(--ac);min-width:104px;font-size:12px;padding-top:2px}
 .sig{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:var(--muted);font-size:11px;border-top:1px solid rgba(247,244,238,.2);padding-top:10px;position:relative}
+
+/* quick actions */
+.quick{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+.quick>div{border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;background:#fff}
+.quick svg{width:20px;height:20px;color:var(--ac);margin-inline:auto;margin-bottom:6px;display:block}
+.quick b{display:block;font-family:var(--fd);font-size:13px}
+.quick span{color:var(--muted);font-size:11px;display:block}
+@media (max-width:760px){.quick{grid-template-columns:1fr}}
 
 /* ---------- motion (screen only) ---------- */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s var(--ease)}
@@ -303,6 +319,12 @@ h2.big{font-size:30px;font-weight:800;letter-spacing:0;line-height:1.4}
   <div class="rv d2" style="margin-top:24px">
     <p class="klabel"><i></i>كلمة افتتاحية</p>
     <p class="word">نضع بين أيديكم ملفنا التعريفي، وفيه من نحن، وما نتقنه، وكيف نعمل. نؤمن أن كل مشروع يبدأ بثقة، وأن الثقة تُبنى بالإتقان والوضوح والالتزام، وهذا ما نجدده مع كل عميل وفي كل مشروع.</p>
+  </div>
+  <div class="glance rv d2">
+    <div><em>تقييم قوقل</em><b class="en">4.9</b></div>
+    <div><em>المدينة</em><b>الرياض</b></div>
+    <div><em>التخصص</em><b>استشارات هندسية</b></div>
+    <div><em>صفحات الملف</em><b class="en">10</b></div>
   </div>
   <div class="pfoot"><span>مكتب ارابين للاستشارات الهندسية · ملف تعريفي 2026</span><span class="en">02</span></div>
 </section>
@@ -463,6 +485,20 @@ h2.big{font-size:30px;font-weight:800;letter-spacing:0;line-height:1.4}
       <div class="crow"><dt>أوقات العمل</dt><dd>الأحد إلى الخميس</dd></div>
     </div>
     <div class="sig"><span>مكتب ارابين للاستشارات الهندسية · ملف تعريفي 2026</span><span class="enmark" style="font-size:10px">ARABIN</span></div>
+  </div>
+  <div class="quick rv d2">
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2.1z"/></svg>
+      <b>اتصال مباشر</b><span>خلال ساعات العمل</span>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <b>واتساب فوري</b><span>أسرع طريقة للتواصل</span>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <b>زيارة المكتب</b><span>الخريطة في صفحة <span class="en">09</span></span>
+    </div>
   </div>
   <div class="pfoot"><span>مكتب ارابين للاستشارات الهندسية · التواصل</span><span class="en">10</span></div>
 </section>
