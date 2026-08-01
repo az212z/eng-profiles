@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>مكتب علي العقيلي للاستشارات الهندسية والسلامة · ملف تعريفي</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#F7F4EE; --paper2:#EFEAE0; --ink:#1B1A17; --muted:#77705F;
+  --line:#DCD5C6; --hair:rgba(27,26,23,.16); --ac:#B23A2E;
+  --fd:'Alexandria','Segoe UI',sans-serif; --fb:'IBM Plex Sans Arabic','Segoe UI',Tahoma,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.9;font-size:13.5px;-webkit-font-smoothing:antialiased}
+.en{font-family:var(--fd)}
+h1,h2,h3{font-family:var(--fd);line-height:1.45}
+a{color:inherit;text-decoration:none}
+
+/* screen-only topbar */
+.topbar{
+  position:fixed;top:0;inset-inline:0;z-index:50;
+  display:flex;align-items:center;gap:18px;
+  background:rgba(247,244,238,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding:10px min(4vw,28px);font-size:12.5px;
+}
+.topbar b{font-family:var(--fd);letter-spacing:.18em;font-size:12px;color:var(--ac)}
+.topbar nav{display:flex;gap:14px;margin-inline-start:auto;flex-wrap:wrap}
+.topbar a{color:var(--muted);font-weight:500;transition:color .25s}
+.topbar a:hover{color:var(--ink)}
+@media (max-width:700px){.topbar nav{display:none}}
+
+/* blueprint motif */
+.bp{position:absolute;inset:0;pointer-events:none;
+  background:
+   linear-gradient(var(--hair) 1px,transparent 1px) 0 0/100% 25%,
+   linear-gradient(90deg,var(--hair) 1px,transparent 1px) 0 0/25% 100%;
+  mask:linear-gradient(#000,transparent 78%);-webkit-mask:linear-gradient(#000,transparent 78%);
+  opacity:.22}
+.cross{position:absolute;width:14px;height:14px;color:var(--ac)}
+.cross::before,.cross::after{content:"";position:absolute;background:currentColor}
+.cross::before{inset-inline:0;top:50%;height:1.5px}
+.cross::after{inset-block:0;inset-inline-start:50%;width:1.5px}
+
+/* sheets */
+.sheet{position:relative;max-width:210mm;margin-inline:auto;padding:18mm 17mm 14mm;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;min-height:80vh}
+.sheet + .sheet{border-top:1px solid var(--line)}
+.shead{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:22px;font-size:11.5px}
+.shead b{font-family:var(--fd)}
+.shead span{color:var(--muted)}
+.pfoot{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);color:var(--muted);font-size:10.5px}
+.pfoot .en{font-weight:700;color:var(--ink)}
+.ghost{position:absolute;top:30mm;inset-inline-end:13mm;font-family:var(--fd);font-weight:800;font-size:52px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(27,26,23,.12);letter-spacing:.04em;pointer-events:none}
+.klabel{display:inline-flex;align-items:center;gap:10px;color:var(--ac);font-family:var(--fd);font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:12px}
+.klabel i{font-style:normal;width:34px;height:1.5px;background:var(--ac);display:inline-block;transform-origin:inline-start}
+h2.big{font-size:30px;font-weight:800;letter-spacing:0;line-height:1.4}
+.lead{color:var(--muted);max-width:150mm;margin-top:6px}
+
+/* COVER (dark, artwork) */
+.cover{min-height:290mm;background:var(--ink);color:var(--paper)}
+.coverbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.covergrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,16,.97) 12%,rgba(20,19,16,.62) 46%,rgba(20,19,16,.24) 74%,rgba(20,19,16,.6) 100%)}
+.cover .genart{position:absolute;inset:0;background:
+  radial-gradient(circle at 78% 18%,color-mix(in srgb,var(--ac) 36%,transparent),transparent 55%),
+  radial-gradient(circle at 18% 85%,color-mix(in srgb,var(--ac) 26%,transparent),transparent 50%),
+  linear-gradient(160deg,#0E1F19 0%,#123126 55%,#0B1A15 100%)}
+.cover .genart svg{position:absolute;inset-inline-end:-8mm;bottom:-6mm;width:150mm;height:150mm;opacity:.5}
+.cover .top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.cover .chip{border:1.5px solid rgba(247,244,238,.75);border-radius:999px;padding:4px 16px;font-size:11.5px;font-weight:600}
+.cover .enmark{font-family:var(--fd);font-weight:800;letter-spacing:.34em;font-size:13px;color:var(--ac)}
+.cover .mid{margin:auto 0;position:relative;z-index:2;padding-block:26mm}
+.cover .rule{width:70px;height:4px;background:var(--ac);margin-bottom:18px;transform-origin:inline-start}
+.cover h1{font-size:42px;font-weight:800;line-height:1.32;max-width:160mm}
+.cover h1 .thin{font-weight:300;display:block;font-size:22px;color:rgba(247,244,238,.8)}
+.cover .tag{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:17px;margin-top:14px}
+.cover .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;position:relative;z-index:2;border-top:1px solid rgba(247,244,238,.32);padding-top:14px;font-size:11.5px;color:rgba(247,244,238,.72)}
+.cover .foot>span{display:flex;flex-direction:column;gap:2px}
+.cover .foot em{font-style:normal;font-size:10px;letter-spacing:.14em;color:var(--ac);font-family:var(--fd);font-weight:700}
+.cover .foot b{color:var(--paper);font-weight:600}
+.bignum{position:absolute;inset-inline-end:8mm;bottom:20mm;font-family:var(--fd);font-weight:800;font-size:120px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(247,244,238,.32);z-index:1;letter-spacing:.03em}
+
+/* TOC */
+.toc{margin-top:8px}
+.toc-row{display:flex;align-items:baseline;gap:12px;padding-block:11px;border-bottom:1px solid var(--line);font-size:14px}
+.toc-row .no{font-family:var(--fd);font-weight:800;color:var(--ac);min-width:28px;font-size:13px}
+.toc-row b{font-family:var(--fd);font-weight:700}
+.toc-row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
+.toc-row .pg{font-family:var(--fd);font-weight:700;color:var(--muted);font-size:12.5px}
+.word{border-inline-start:4px solid var(--ac);padding:4px 18px;margin-top:10px;font-size:14.5px;max-width:158mm}
+
+/* glance strip */
+.glance{display:grid;grid-template-columns:repeat(4,1fr);margin-top:26px;border-block:1px solid var(--ink)}
+.glance>div{padding:13px 6px;text-align:center;display:flex;flex-direction:column;gap:2px}
+.glance>div+div{border-inline-start:1px solid var(--line)}
+.glance em{font-style:normal;font-size:10px;letter-spacing:.1em;color:var(--muted);font-family:var(--fd);font-weight:700}
+.glance b{font-family:var(--fd);font-weight:800;font-size:16px;color:var(--ac)}
+
+/* about */
+.vmrow{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:20px;border-top:1px solid var(--line)}
+.vmrow>div{padding-top:14px}
+.vmrow h3{color:var(--ac);font-size:15.5px;margin-bottom:4px}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.vals .v{background:var(--ink);color:var(--paper);border-radius:12px;padding:13px 13px}
+.vals .v b{display:block;color:var(--ac);font-family:var(--fd);font-size:13.5px;margin-bottom:2px}
+.vals .v span{font-size:10.8px;color:rgba(247,244,238,.8);line-height:1.65;display:block}
+
+/* experience */
+.exrow{display:grid;grid-template-columns:1fr 1.4fr;gap:16px;align-items:baseline;padding-block:12px;border-bottom:1px solid var(--line)}
+.exrow b{font-family:var(--fd);font-size:14.5px}
+.exrow span{color:var(--muted);font-size:12.5px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.stat{border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center;background:#fff}
+.stat b{font-family:var(--fd);font-weight:800;font-size:26px;color:var(--ac);display:block;line-height:1.35}
+.stat span{color:var(--muted);font-size:11.5px}
+.certline{margin-top:22px;border:1px dashed var(--line);border-radius:12px;padding:13px 18px;color:var(--muted);font-size:12.5px;background:var(--paper2)}
+.certline b{color:var(--ink)}
+
+/* services */
+.srow{display:flex;gap:16px;align-items:flex-start;padding-block:13px;position:relative}
+.srow .sline{position:absolute;bottom:0;inset-inline:0;height:1px;background:var(--line);transform-origin:inline-start}
+.sno{font-family:var(--fd);font-weight:800;color:var(--ac);font-size:14px;min-width:30px;padding-top:2px}
+.srow b{font-family:var(--fd);font-size:15px;display:block}
+.srow div span{color:var(--muted);font-size:12.3px;display:block}
+
+/* methodology */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.steps .st{background:#fff;border:1px solid var(--line);border-top:3px solid var(--ac);border-radius:12px;padding:15px 16px}
+.steps .st i{font-style:normal;font-family:var(--fd);font-weight:800;font-size:20px;color:transparent;-webkit-text-stroke:1.2px var(--ac)}
+.steps .st b{display:block;font-family:var(--fd);font-size:14px;margin:4px 0 2px}
+.steps .st span{font-size:11.8px;color:var(--muted);line-height:1.7;display:block}
+.gpanel{margin-top:22px;background:var(--ink);color:var(--paper);border-radius:14px;padding:18px 20px}
+.gpanel h3{color:var(--ac);font-size:15px;margin-bottom:8px}
+.gpanel ul{list-style:none;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.gpanel li{font-size:12px;color:rgba(247,244,238,.85);line-height:1.7;border-inline-start:2px solid var(--ac);padding-inline-start:10px}
+.gpanel li b{display:block;color:var(--paper);font-family:var(--fd);font-size:12.5px}
+
+/* divider */
+.divider{background:color-mix(in srgb,var(--ac) 82%,#141310);color:var(--paper);min-height:290mm}
+.dv-mid{margin:auto 0;position:relative;z-index:2;text-align:center;padding-block:40mm}
+.dv-mark{font-family:var(--fd);font-weight:800;letter-spacing:.4em;font-size:12px;color:rgba(247,244,238,.75);margin-bottom:18px}
+.dv-quote{font-family:var(--fd);font-weight:800;font-size:44px;line-height:1.5}
+.dv-sub{color:rgba(247,244,238,.8);margin-top:16px;font-size:14px}
+@media print{.divider{height:296mm;min-height:0}}
+
+/* works */
+.banner{position:relative;height:46mm;border-radius:14px;overflow:hidden;margin-bottom:20px}
+.banner img{width:100%;height:100%;object-fit:cover}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,color-mix(in srgb,var(--ac) 55%,rgba(20,19,16,.75)),transparent 65%);mix-blend-mode:multiply}
+.banner .bcap{position:absolute;bottom:10px;inset-inline-start:16px;z-index:2;color:#fff;font-size:11px;letter-spacing:.22em;font-family:var(--fd);font-weight:700}
+.banner.gen{background:
+  radial-gradient(circle at 80% 20%,color-mix(in srgb,var(--ac) 40%,transparent),transparent 55%),
+  linear-gradient(160deg,#0E1F19,#123126)}
+.works{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px}
+.wcard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:15px 15px 30px;position:relative;min-height:140px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
+.wcard.feat{grid-column:span 2;background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.wcard.feat b{color:var(--paper)}
+.wcard.feat p{color:rgba(247,244,238,.75)}
+.wcard.feat .wtag{background:color-mix(in srgb,var(--ac) 28%,transparent);color:var(--ac)}
+.wcard.feat .wno{-webkit-text-stroke:1px rgba(247,244,238,.3)}
+.wcard:hover{transform:translateY(-5px);box-shadow:0 18px 34px -18px rgba(27,26,23,.25)}
+.wtag{align-self:flex-start;background:var(--paper2);border-radius:999px;font-size:10.5px;color:var(--muted);padding:2px 10px;margin-bottom:8px}
+.wcard b{font-family:var(--fd);font-size:14px}
+.wcard p{color:var(--muted);font-size:11.6px;margin-top:4px;line-height:1.7}
+.wno{position:absolute;bottom:8px;inset-inline-end:13px;font-family:var(--fd);font-weight:800;color:transparent;-webkit-text-stroke:1px var(--hair);font-size:24px}
+
+/* LOCATION (real map) */
+.mapwrap{position:relative;border:1px solid var(--ink);outline:1px solid var(--line);outline-offset:4px;border-radius:14px;overflow:hidden;height:126mm;margin-top:16px;background:var(--paper2)}
+.mapwrap iframe{width:100%;height:100%;border:0;display:block}
+.map-print{display:none;width:100%;height:100%;object-fit:cover}
+.mapbadge{position:absolute;top:12px;inset-inline-start:12px;z-index:3;background:var(--ink);color:var(--paper);border-radius:999px;padding:5px 16px;font-size:11.5px;display:flex;gap:8px;align-items:center}
+.mapbadge svg{width:14px;height:14px;color:var(--ac)}
+.locrows{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.locrows div{display:flex;gap:12px;padding-block:9px;border-bottom:1px solid var(--line);font-size:12.8px}
+.locrows dt{color:var(--muted);min-width:92px}
+.locrows dd.en{direction:ltr;text-align:end}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px 26px;margin-top:20px;position:relative;overflow:hidden}
+.contact .cp{position:absolute;inset:0;opacity:.1;background:
+  linear-gradient(rgba(247,244,238,.5) 1px,transparent 1px) 0 0/100% 25%,
+  linear-gradient(90deg,rgba(247,244,238,.5) 1px,transparent 1px) 0 0/25% 100%}
+.contact h2{color:var(--ac);font-size:20px;margin-bottom:12px;position:relative}
+.crows{display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;position:relative;font-size:13.5px}
+.crow{display:flex;gap:10px;align-items:flex-start}
+.crow dd{flex:1;line-height:1.7}
+.crow dt{color:var(--ac);min-width:104px;font-size:12px;padding-top:2px}
+.sig{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:var(--muted);font-size:11px;border-top:1px solid rgba(247,244,238,.2);padding-top:10px;position:relative}
+
+/* quick actions */
+.quick{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+.quick>div{border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;background:#fff}
+.quick svg{width:20px;height:20px;color:var(--ac);margin-inline:auto;margin-bottom:6px;display:block}
+.quick b{display:block;font-family:var(--fd);font-size:13px}
+.quick span{color:var(--muted);font-size:11px;display:block}
+@media (max-width:760px){.quick{grid-template-columns:1fr}}
+
+/* ---------- motion (screen only) ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}
+.hlx{display:block;overflow:hidden}
+.hlx>span{display:inline-block;transform:translateY(112%);transition:transform 1s var(--ease)}
+.play .hlx>span{transform:none}
+.play .cover .rule{animation:grow 1s var(--ease) .2s both}
+@keyframes grow{from{transform:scaleX(0)}}
+.sline{transform:scaleX(0);transition:transform .9s var(--ease) .15s}
+.rv.in .sline{transform:scaleX(1)}
+.klabel i{transform:scaleX(0);transition:transform .7s var(--ease) .1s}
+.rv.in .klabel i,.play .klabel i{transform:none}
+.cross{animation:blink 3.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:.9}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .rv{opacity:1!important;transform:none!important}
+  .hlx>span{transform:none!important}
+  .sline{transform:none!important}
+}
+
+/* ---------- mobile ---------- */
+@media (max-width:760px){
+  .sheet{padding:14mm 6vw;min-height:0}
+  body{padding-top:44px}
+  .cover h1{font-size:28px}
+  .bignum{font-size:64px;bottom:32mm}
+  .vmrow,.crows,.locrows{grid-template-columns:1fr}
+  .works{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .gpanel ul{grid-template-columns:1fr}
+  .vals{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .stat b{font-size:19px}
+  .exrow{grid-template-columns:1fr;gap:2px}
+  .mapwrap{height:72vw}
+}
+@media (max-width:460px){.works{grid-template-columns:1fr}}
+
+/* ---------- print / PDF ---------- */
+@page{size:A4;margin:0}
+@media print{
+  body{background:#fff;padding-top:0}
+  .topbar{display:none}
+  .sheet{width:210mm;height:296mm;max-width:none;padding:15mm 15mm 12mm;page-break-after:always;border:none!important;min-height:0}
+  .sheet:last-child{page-break-after:auto}
+  .cover{min-height:0;height:296mm}
+  .rv{opacity:1!important;transform:none!important}
+  .hlx>span{transform:none!important}
+  .sline{transform:none!important}
+  .klabel i{transform:none!important}
+  .cross{animation:none!important}
+  .wcard:hover{transform:none;box-shadow:none}
+  .map-live{display:none!important}
+  .map-print{display:block!important}
+  .mapwrap{height:120mm}
+}
+</style>
+</head>
+<body>
+
+<!-- screen-only site nav -->
+<header class="topbar">
+  <b class="en">ALAQILI</b>
+  <nav>
+    <a href="#s-about">من نحن</a>
+    <a href="#s-exp">الخبرات</a>
+    <a href="#s-svc">الخدمات</a>
+    <a href="#s-method">المنهجية</a>
+    <a href="#s-works">الأعمال</a>
+    <a href="#s-loc">الموقع</a>
+    <a href="#s-contact">تواصل</a>
+  </nav>
+</header>
+
+<!-- ====== 1 · COVER ====== -->
+<section class="sheet cover">
+  <span class="genart" style="background:radial-gradient(circle at 78% 18%,color-mix(in srgb,#B23A2E 38%,transparent),transparent 55%),radial-gradient(circle at 18% 85%,color-mix(in srgb,#B23A2E 26%,transparent),transparent 50%),linear-gradient(160deg,#1A1412 0%,#2B1B15 60%,#1A1412 100%)"><svg viewBox="0 0 400 400" fill="none" stroke="color-mix(in srgb,#B23A2E 62%,#F7F4EE)" stroke-width="1.8"><path d="M200 40 L330 92 V210 C330 300 200 362 200 362 C200 362 70 300 70 210 V92 Z"/><path d="M200 80 L295 118 V206 C295 272 200 320 200 320 C200 320 105 272 105 206 V118 Z" opacity=".55"/><path d="M158 200 l32 32 58 -66" stroke-width="2.4" opacity=".9"/></svg></span>
+  <span class="bp" style="--hair:rgba(247,244,238,.2)"></span>
+  <span class="cross" style="top:24mm;inset-inline-start:16mm"></span>
+  <span class="cross" style="bottom:42mm;inset-inline-end:20mm"></span>
+  <div class="top">
+    <span class="chip">ملف تعريفي · <span class="en">2026</span></span>
+    <span class="enmark">ALAQILI</span>
+  </div>
+  <div class="mid">
+    <div class="rule"></div>
+    <h1>
+      <span class="hlx"><span>العقيلي</span></span>
+      <span class="thin hlx"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة</span></span>
+    </h1>
+    <p class="tag hlx"><span>سلامة منشأتك، مسؤوليتنا الأولى.</span></p>
+  </div>
+  <span class="bignum en" aria-hidden="true">5.0</span>
+  <div class="foot">
+    <span><em>المدينة</em><b>الرياض · غرناطة</b></span>
+    <span><em>تقييم العملاء</em><b><span class="en">5.0</span> على خرائط قوقل</b></span>
+    <span><em>الإصدار</em><b class="en">2026</b></span>
+  </div>
+</section>
+
+<!-- ====== 2 · TOC + WORD ====== -->
+<section class="sheet">
+  <div class="shead"><b>مكتب علي العقيلي للاستشارات الهندسية والسلامة</b><span>المحتويات</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>محتويات الملف</p>
+    <h2 class="big">دليلك داخل هذا الملف</h2>
+  </div>
+  <div class="toc rv d1">
+    <div class="toc-row"><span class="no en">01</span><b>من نحن</b><span class="dots"></span><span class="pg en">03</span></div>
+    <div class="toc-row"><span class="no en">02</span><b>خبراتنا وتخصصاتنا</b><span class="dots"></span><span class="pg en">04</span></div>
+    <div class="toc-row"><span class="no en">03</span><b>خدماتنا</b><span class="dots"></span><span class="pg en">05</span></div>
+    <div class="toc-row"><span class="no en">04</span><b>منهجية العمل وضمانات الجودة</b><span class="dots"></span><span class="pg en">06</span></div>
+    <div class="toc-row"><span class="no en">05</span><b>سابقة الأعمال</b><span class="dots"></span><span class="pg en">08</span></div>
+    <div class="toc-row"><span class="no en">06</span><b>موقعنا على الخريطة</b><span class="dots"></span><span class="pg en">09</span></div>
+    <div class="toc-row"><span class="no en">07</span><b>بيانات التواصل</b><span class="dots"></span><span class="pg en">10</span></div>
+  </div>
+  <div class="rv d2" style="margin-top:24px">
+    <p class="klabel"><i></i>كلمة افتتاحية</p>
+    <p class="word">نضع بين أيديكم ملفنا التعريفي، وفيه من نحن، وما نتقنه، وكيف نعمل. نؤمن أن كل مشروع يبدأ بثقة، وأن الثقة تُبنى بالإتقان والوضوح والالتزام، وهذا ما نجدده مع كل عميل وفي كل مشروع.</p>
+  </div>
+  <div class="glance rv d2">
+    <div><em>تقييم قوقل</em><b class="en">5.0</b></div>
+    <div><em>المدينة</em><b>الرياض</b></div>
+    <div><em>التخصص</em><b>استشارات سلامة</b></div>
+    <div><em>صفحات الملف</em><b class="en">10</b></div>
+  </div>
+  <div class="pfoot"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة · ملف تعريفي 2026</span><span class="en">02</span></div>
+</section>
+
+<!-- ====== 3 · ABOUT ====== -->
+<section class="sheet" id="s-about">
+  <span class="ghost en" aria-hidden="true">01</span>
+  <div class="shead"><b>مكتب علي العقيلي للاستشارات الهندسية والسلامة</b><span>من نحن</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>من نحن</p>
+    <h2 class="big">بيت خبرة سعودي في هندسة السلامة</h2>
+    <p class="lead">مكتب علي العقيلي للاستشارات الهندسية والسلامة يعمل من حي غرناطة في الرياض، ويقدم استشارات وتقارير سلامة معتمدة تحمي المنشآت ومن فيها، وتنهي اشتراطات الجهات بلا تعثر. حاز ثقة عملائه بتقييم <b class="en">5.0</b> على خرائط قوقل، وهي ثقة نجددها في كل مشروع.</p>
+  </div>
+  <div class="vmrow rv d1">
+    <div><h3>رؤيتنا</h3><p class="lead" style="max-width:none">أن نكون خيارًا أول في قطاع الاستشارات الهندسية بالمملكة، بحلول ترتقي إلى تطلعات رؤية 2030 وتليق بعمرانها المتسارع.</p></div>
+    <div><h3>رسالتنا</h3><p class="lead" style="max-width:none">تقديم خدمات هندسية دقيقة وموثوقة تحقق تطلعات عملائنا وتحمي استثماراتهم، بالتزام تام بالجودة والمواعيد.</p></div>
+  </div>
+  <div class="rv d2" style="margin-top:22px">
+    <p class="klabel"><i></i>قيمنا</p>
+    <div class="vals">
+      <div class="v"><b>الإتقان</b><span>الجودة منهج عمل في كل تفصيلة.</span></div>
+      <div class="v"><b>الأمانة</b><span>وضوح كامل في التعامل والتكلفة والمواعيد.</span></div>
+      <div class="v"><b>الالتزام</b><span>نحترم الوقت ونلتزم بما نعِد به.</span></div>
+      <div class="v"><b>الشراكة</b><span>ننجح حين يرى عملاؤنا مشاريعهم كما حلموا بها.</span></div>
+    </div>
+  </div>
+  <div class="pfoot"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة · من نحن</span><span class="en">03</span></div>
+</section>
+
+<!-- ====== 4 · EXPERIENCE ====== -->
+<section class="sheet" id="s-exp">
+  <span class="ghost en" aria-hidden="true">02</span>
+  <div class="shead"><b>مكتب علي العقيلي للاستشارات الهندسية والسلامة</b><span>الخبرات والتخصصات</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>خبراتنا وتخصصاتنا</p>
+    <h2 class="big">فريق واحد، تخصصات متكاملة</h2>
+    <p class="lead">تتكامل تخصصاتنا لتغطية المشروع من كل جوانبه، بلا وسطاء وبلا فجوات بين التصميم والتنفيذ.</p>
+  </div>
+  <div class="rv d1" style="margin-top:10px"><div class="exrow rv"><b>هندسة السلامة والإطفاء</b><span>تصميم الأنظمة واعتمادها</span></div><div class="exrow rv"><b>أنظمة الإنذار والإخلاء</b><span>كشف مبكر واستجابة أسرع</span></div><div class="exrow rv"><b>اشتراطات الدفاع المدني</b><span>خبرة إجرائية تختصر الوقت</span></div><div class="exrow rv"><b>تقييم المخاطر</b><span>منهجيات كمية ونوعية</span></div><div class="exrow rv"><b>التدريب والتأهيل</b><span>ثقافة سلامة تبقى بعدنا</span></div></div>
+  <div class="stats">
+    <div class="stat rv"><b class="en" data-count="5.0" data-dec="1">5.0</b><span>تقييم عملائنا على قوقل</span></div>
+    <div class="stat rv d1"><b>الرياض</b><span>نخدم الرياض وما حولها</span></div>
+    <div class="stat rv d2"><b>شامل</b><span>من الفكرة حتى التسليم</span></div>
+  </div>
+  <p class="certline rv d2"><b>التزام نظامي:</b> نعمل وفق اشتراطات الدفاع المدني وكود البناء السعودي، بفريق مؤهل في هندسة السلامة والإطفاء.</p>
+  <div class="pfoot"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة · الخبرات</span><span class="en">04</span></div>
+</section>
+
+<!-- ====== 5 · SERVICES ====== -->
+<section class="sheet" id="s-svc">
+  <span class="ghost en" aria-hidden="true">03</span>
+  <div class="shead"><b>مكتب علي العقيلي للاستشارات الهندسية والسلامة</b><span>خدماتنا</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>خدماتنا</p>
+    <h2 class="big">منظومة خدمات تغطي المشروع كاملًا</h2>
+  </div>
+  <div style="margin-top:10px"><div class="srow rv"><span class="sno en">01</span><div><b>مخططات السلامة والاعتمادات</b><span>إعداد مخططات سلامة معتمدة وإنهاء موافقات الدفاع المدني.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">02</span><div><b>فحص أنظمة الحريق والإنذار</b><span>تقارير فحص دورية لأنظمة الإطفاء والإنذار والتهوية.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">03</span><div><b>دراسات تقييم المخاطر</b><span>تحديد مواطن الخطر في المنشأة وخطط معالجتها عمليًا.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">04</span><div><b>خطط الإخلاء والطوارئ</b><span>سيناريوهات إخلاء واضحة ولوحات إرشادية مطابقة.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">05</span><div><b>تراخيص السلامة البلدية</b><span>متابعة إصدار وتجديد تراخيص السلامة حتى الاستلام.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">06</span><div><b>تدريب فرق السلامة</b><span>تأهيل منسوبي المنشأة على الوقاية والتصرف السليم.</span></div><i class="sline"></i></div></div>
+  <p class="lead rv" style="margin-top:18px">لكل خدمة نطاق عمل واضح وتسعير شفاف يُتفق عليه قبل البدء، ومخرجات محددة يعرفها العميل سلفًا.</p>
+  <div class="pfoot"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة · خدماتنا</span><span class="en">05</span></div>
+</section>
+
+<!-- ====== 6 · METHOD + GUARANTEES ====== -->
+<section class="sheet" id="s-method">
+  <span class="ghost en" aria-hidden="true">04</span>
+  <div class="shead"><b>مكتب علي العقيلي للاستشارات الهندسية والسلامة</b><span>منهجية العمل</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>منهجية العمل</p>
+    <h2 class="big">أربع خطوات، بلا مفاجآت</h2>
+  </div>
+  <div class="steps">
+    <div class="st rv"><i class="en">01</i><b>الاستماع وفهم المتطلبات</b><span>نبدأ من احتياج العميل وتطلعاته، ونحدد نطاق العمل بوضوح كامل.</span></div>
+    <div class="st rv d1"><i class="en">02</i><b>الدراسة ووضع الحلول</b><span>نحلل الموقع والمتطلبات، ونقدم الحلول الهندسية الأنسب كلفةً وجودة.</span></div>
+    <div class="st rv"><i class="en">03</i><b>التصميم والاعتماد</b><span>نطور التصاميم بمشاركة العميل حتى الاعتماد النهائي واستخراج الرخص.</span></div>
+    <div class="st rv d1"><i class="en">04</i><b>التنفيذ والتسليم</b><span>نشرف على التنفيذ حتى التسليم، بالتزام تام بالجودة والمواعيد.</span></div>
+  </div>
+  <div class="gpanel rv d2">
+    <h3>ضمانات نلتزم بها في كل مشروع</h3>
+    <ul>
+      <li><b>وضوح قبل البدء</b>نطاق وتكلفة ومدة مكتوبة ومتفق عليها.</li>
+      <li><b>تقارير دورية</b>تحديثات مستمرة بمستجدات العمل والقرارات.</li>
+      <li><b>مسؤولية بعد التسليم</b>نبقى معك للملاحظات بعد إغلاق المشروع.</li>
+    </ul>
+  </div>
+  <div class="pfoot"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة · المنهجية</span><span class="en">06</span></div>
+</section>
+
+
+<!-- ====== 7 · DIVIDER ====== -->
+<section class="sheet divider">
+  <span class="bp" style="--hair:rgba(247,244,238,.16)"></span>
+  <span class="cross" style="top:20mm;inset-inline-start:18mm;color:rgba(247,244,238,.5)"></span>
+  <span class="cross" style="bottom:24mm;inset-inline-end:18mm;color:rgba(247,244,238,.5)"></span>
+  <div class="dv-mid">
+    <p class="dv-mark en">ALAQILI</p>
+    <p class="dv-quote">السلامة استثمار<br />لا يتوقف عائده.</p>
+    <p class="dv-sub">منشأة ممتثلة تعني ترخيصًا بلا تعطيل، وتأمينًا أقل كلفة، وأشخاصًا بأمان.</p>
+  </div>
+  <div class="pfoot" style="border-color:rgba(247,244,238,.25);color:rgba(247,244,238,.6)"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة</span><span class="en" style="color:var(--paper)">07</span></div>
+</section>
+
+<!-- ====== 8 · WORKS ====== -->
+<section class="sheet" id="s-works">
+  <span class="ghost en" aria-hidden="true">05</span>
+  <div class="shead"><b>مكتب علي العقيلي للاستشارات الهندسية والسلامة</b><span>سابقة الأعمال</span></div>
+  <figure class="banner gen rv" style="background:radial-gradient(circle at 80% 20%,color-mix(in srgb,#B23A2E 42%,transparent),transparent 55%),linear-gradient(160deg,#1A1412,#2B1B15)"><span class="bcap en">ALAQILI</span></figure>
+  <div class="rv">
+    <p class="klabel"><i></i>سابقة الأعمال</p>
+    <h2 class="big">نماذج مما نعمل عليه</h2>
+    <p class="lead">نخدم المنشآت التجارية والصناعية والتعليمية والصحية بكل أحجامها:</p>
+  </div>
+  <div class="works"><div class="wcard feat rv d0"><span class="wtag">اعتماد وفحص</span><b>مجمعات تجارية وأسواق</b><p>مسارات إخلاء وأنظمة إطفاء لمواقع عالية الكثافة.</p><span class="wno en">01</span></div><div class="wcard rv d1"><span class="wtag">دراسات ومخططات</span><b>مستودعات ومصانع</b><p>تصنيف خطورة وتخزين آمن حسب طبيعة النشاط.</p><span class="wno en">02</span></div><div class="wcard rv d2"><span class="wtag">خطط وتدريب</span><b>مدارس وقطاع تعليمي</b><p>بيئات تعليمية آمنة بخطط إخلاء مجربة.</p><span class="wno en">03</span></div><div class="wcard rv d0"><span class="wtag">فحص واعتماد</span><b>أبراج ومكاتب</b><p>أنظمة إنذار وضغط أدراج مطابقة للكود.</p><span class="wno en">04</span></div><div class="wcard rv d1"><span class="wtag">اعتماد</span><b>مطاعم ومقاهي</b><p>سلامة مطابخ وشفاطات وغاز باشتراطاتها الدقيقة.</p><span class="wno en">05</span></div><div class="wcard rv d2"><span class="wtag">دراسات واعتماد</span><b>منشآت صحية</b><p>حماية من لا يستطيع الإخلاء بنفسه أولوية قصوى.</p><span class="wno en">06</span></div></div>
+  <div class="pfoot"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة · سابقة الأعمال</span><span class="en">08</span></div>
+</section>
+
+<!-- ====== 8 · LOCATION (real map) ====== -->
+<section class="sheet" id="s-loc">
+  <span class="ghost en" aria-hidden="true">06</span>
+  <div class="shead"><b>مكتب علي العقيلي للاستشارات الهندسية والسلامة</b><span>موقعنا على الخريطة</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>موقعنا</p>
+    <h2 class="big">الرياض · غرناطة</h2>
+  </div>
+  <div class="mapwrap rv d1">
+    <span class="mapbadge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      العقيلي
+    </span>
+    <iframe class="map-live" title="موقع العقيلي على خرائط قوقل" src="https://maps.google.com/maps?q=24.729334,46.767982&z=15&hl=ar&output=embed" loading="lazy"></iframe>
+    <img class="map-print" src="img/map-alaqili-safety.jpg" alt="خريطة موقع العقيلي في الرياض" />
+  </div>
+  <div class="locrows rv d2">
+    <div><dt>العنوان</dt><dd>حي غرناطة، الرياض</dd></div>
+    <div><dt>الإحداثيات</dt><dd class="en">24.729334, 46.767982</dd></div>
+    <div><dt>نطاق الخدمة</dt><dd>الرياض والمناطق المحيطة</dd></div>
+    <div><dt>رابط الخريطة</dt><dd class="en">maps.google.com/?q=24.729334,46.767982</dd></div>
+  </div>
+  <div class="pfoot"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة · الموقع</span><span class="en">09</span></div>
+</section>
+
+<!-- ====== 9 · CONTACT ====== -->
+<section class="sheet" id="s-contact">
+  <span class="ghost en" aria-hidden="true">07</span>
+  <div class="shead"><b>مكتب علي العقيلي للاستشارات الهندسية والسلامة</b><span>تواصل معنا</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>الخطوة التالية</p>
+    <h2 class="big">مشروعك يستحق بداية صحيحة</h2>
+    <p class="lead">تواصل معنا وسنستمع لتفاصيل مشروعك ونقترح المسار الهندسي الأنسب، بوضوح كامل في النطاق والتكلفة والمدة.</p>
+  </div>
+  <div class="contact rv d1">
+    <span class="cp"></span>
+    <h2>بيانات التواصل</h2>
+    <div class="crows">
+      <div class="crow"><dt>الجوال</dt><dd class="en" dir="ltr">054 459 5097</dd></div>
+      <div class="crow"><dt>واتساب</dt><dd class="en" dir="ltr">wa.me/966544595097</dd></div>
+      <div class="crow"><dt>العنوان</dt><dd>حي غرناطة، الرياض</dd></div>
+      <div class="crow"><dt>الموقع الإلكتروني</dt><dd>قيد الإطلاق</dd></div>
+      <div class="crow"><dt>خرائط قوقل</dt><dd>العقيلي · <span class="en">5.0</span></dd></div>
+      <div class="crow"><dt>أوقات العمل</dt><dd>الأحد إلى الخميس</dd></div>
+    </div>
+    <div class="sig"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة · ملف تعريفي 2026</span><span class="enmark" style="font-size:10px">ALAQILI</span></div>
+  </div>
+  <div class="quick rv d2">
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2.1z"/></svg>
+      <b>اتصال مباشر</b><span>خلال ساعات العمل</span>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <b>واتساب فوري</b><span>أسرع طريقة للتواصل</span>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <b>زيارة المكتب</b><span>الخريطة في صفحة <span class="en">09</span></span>
+    </div>
+  </div>
+  <div class="pfoot"><span>مكتب علي العقيلي للاستشارات الهندسية والسلامة · التواصل</span><span class="en">10</span></div>
+</section>
+
+<script>
+(function(){
+  'use strict';
+  document.body.classList.add('play');
+  var els=document.querySelectorAll('.rv');
+  try{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  }catch(e){ els.forEach(function(el){ el.classList.add('in'); }); }
+  setTimeout(function(){ els.forEach(function(el){ el.classList.add('in'); }); },2600);
+  var cs=document.querySelectorAll('[data-count]');
+  function run(el){
+    var t=parseFloat(el.getAttribute('data-count')),d=parseInt(el.getAttribute('data-dec')||'0',10),s=null,D=1400;
+    function f(ts){ if(!s)s=ts; var p=Math.min((ts-s)/D,1); el.textContent=(t*(1-Math.pow(1-p,3))).toFixed(d); if(p<1)requestAnimationFrame(f); }
+    requestAnimationFrame(f);
+    setTimeout(function(){ el.textContent=t.toFixed(d); },D+300);
+  }
+  try{
+    var c=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(e.target); c.unobserve(e.target);} }); },{threshold:.5});
+    cs.forEach(function(el){ el.textContent='0'; c.observe(el); });
+  }catch(e){}
+  setTimeout(function(){ cs.forEach(function(el){ el.textContent=parseFloat(el.getAttribute('data-count')).toFixed(parseInt(el.getAttribute('data-dec')||'0',10)); }); },4000);
+})();
+</script>
+</body>
+</html>
