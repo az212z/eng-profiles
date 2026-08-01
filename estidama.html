@@ -16,7 +16,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.85;font-size:14px}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.9;font-size:13.5px;-webkit-font-smoothing:antialiased}
 .en{font-family:var(--fd)}
 h1,h2,h3{font-family:var(--fd);line-height:1.45}
 a{color:inherit;text-decoration:none}
@@ -54,15 +54,16 @@ a{color:inherit;text-decoration:none}
 .shead span{color:var(--muted)}
 .pfoot{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);color:var(--muted);font-size:10.5px}
 .pfoot .en{font-weight:700;color:var(--ink)}
-.klabel{display:inline-flex;align-items:center;gap:10px;color:var(--ac);font-family:var(--fd);font-weight:700;font-size:12.5px;margin-bottom:10px}
+.ghost{position:absolute;top:12mm;inset-inline-end:10mm;font-family:var(--fd);font-weight:800;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1.2px var(--hair);letter-spacing:.04em;pointer-events:none}
+.klabel{display:inline-flex;align-items:center;gap:10px;color:var(--ac);font-family:var(--fd);font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:12px}
 .klabel i{font-style:normal;width:34px;height:1.5px;background:var(--ac);display:inline-block;transform-origin:inline-start}
-h2.big{font-size:27px;font-weight:800}
+h2.big{font-size:30px;font-weight:800;letter-spacing:0;line-height:1.4}
 .lead{color:var(--muted);max-width:150mm;margin-top:6px}
 
 /* COVER (dark, artwork) */
 .cover{min-height:290mm;background:var(--ink);color:var(--paper)}
 .coverbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.covergrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,16,.94) 8%,rgba(20,19,16,.5) 44%,rgba(20,19,16,.22) 72%,rgba(20,19,16,.58) 100%)}
+.covergrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,16,.97) 12%,rgba(20,19,16,.62) 46%,rgba(20,19,16,.24) 74%,rgba(20,19,16,.6) 100%)}
 .cover .genart{position:absolute;inset:0;background:
   radial-gradient(circle at 78% 18%,color-mix(in srgb,var(--ac) 36%,transparent),transparent 55%),
   radial-gradient(circle at 18% 85%,color-mix(in srgb,var(--ac) 26%,transparent),transparent 50%),
@@ -70,14 +71,16 @@ h2.big{font-size:27px;font-weight:800}
 .cover .genart svg{position:absolute;inset-inline-end:-8mm;bottom:-6mm;width:150mm;height:150mm;opacity:.5}
 .cover .top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
 .cover .chip{border:1.5px solid rgba(247,244,238,.75);border-radius:999px;padding:4px 16px;font-size:11.5px;font-weight:600}
-.cover .enmark{font-family:var(--fd);font-weight:800;letter-spacing:.34em;font-size:13px;color:var(--ac);text-shadow:0 1px 10px rgba(20,19,16,.6)}
+.cover .enmark{font-family:var(--fd);font-weight:800;letter-spacing:.34em;font-size:13px;color:var(--ac)}
 .cover .mid{margin:auto 0;position:relative;z-index:2;padding-block:26mm}
 .cover .rule{width:70px;height:4px;background:var(--ac);margin-bottom:18px;transform-origin:inline-start}
-.cover h1{font-size:40px;font-weight:800;line-height:1.35;max-width:160mm;text-shadow:0 2px 20px rgba(20,19,16,.5)}
+.cover h1{font-size:42px;font-weight:800;line-height:1.32;max-width:160mm}
 .cover h1 .thin{font-weight:300;display:block;font-size:22px;color:rgba(247,244,238,.8)}
-.cover .tag{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:18px;margin-top:12px;text-shadow:0 1px 14px rgba(20,19,16,.65)}
-.cover .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;position:relative;z-index:2;border-top:1px solid rgba(247,244,238,.3);padding-top:12px;font-size:12px;color:rgba(247,244,238,.85)}
-.cover .foot b{color:var(--paper)}
+.cover .tag{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:17px;margin-top:14px}
+.cover .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;position:relative;z-index:2;border-top:1px solid rgba(247,244,238,.32);padding-top:14px;font-size:11.5px;color:rgba(247,244,238,.72)}
+.cover .foot>span{display:flex;flex-direction:column;gap:2px}
+.cover .foot em{font-style:normal;font-size:10px;letter-spacing:.14em;color:var(--ac);font-family:var(--fd);font-weight:700}
+.cover .foot b{color:var(--paper);font-weight:600}
 .bignum{position:absolute;inset-inline-end:8mm;bottom:20mm;font-family:var(--fd);font-weight:800;font-size:120px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(247,244,238,.32);z-index:1;letter-spacing:.03em}
 
 /* TOC */
@@ -128,6 +131,14 @@ h2.big{font-size:27px;font-weight:800}
 .gpanel li{font-size:12px;color:rgba(247,244,238,.85);line-height:1.7;border-inline-start:2px solid var(--ac);padding-inline-start:10px}
 .gpanel li b{display:block;color:var(--paper);font-family:var(--fd);font-size:12.5px}
 
+/* divider */
+.divider{background:color-mix(in srgb,var(--ac) 82%,#141310);color:var(--paper);min-height:290mm}
+.dv-mid{margin:auto 0;position:relative;z-index:2;text-align:center;padding-block:40mm}
+.dv-mark{font-family:var(--fd);font-weight:800;letter-spacing:.4em;font-size:12px;color:rgba(247,244,238,.75);margin-bottom:18px}
+.dv-quote{font-family:var(--fd);font-weight:800;font-size:44px;line-height:1.5}
+.dv-sub{color:rgba(247,244,238,.8);margin-top:16px;font-size:14px}
+@media print{.divider{height:296mm;min-height:0}}
+
 /* works */
 .banner{position:relative;height:46mm;border-radius:14px;overflow:hidden;margin-bottom:20px}
 .banner img{width:100%;height:100%;object-fit:cover}
@@ -138,6 +149,11 @@ h2.big{font-size:27px;font-weight:800}
   linear-gradient(160deg,#0E1F19,#123126)}
 .works{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px}
 .wcard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:15px;position:relative;min-height:140px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
+.wcard.feat{grid-column:span 2;background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.wcard.feat b{color:var(--paper)}
+.wcard.feat p{color:rgba(247,244,238,.75)}
+.wcard.feat .wtag{background:color-mix(in srgb,var(--ac) 28%,transparent);color:var(--ac)}
+.wcard.feat .wno{-webkit-text-stroke:1px rgba(247,244,238,.3)}
 .wcard:hover{transform:translateY(-5px);box-shadow:0 18px 34px -18px rgba(27,26,23,.25)}
 .wtag{align-self:flex-start;background:var(--paper2);border-radius:999px;font-size:10.5px;color:var(--muted);padding:2px 10px;margin-bottom:8px}
 .wcard b{font-family:var(--fd);font-size:14px}
@@ -145,7 +161,7 @@ h2.big{font-size:27px;font-weight:800}
 .wno{position:absolute;bottom:8px;inset-inline-end:13px;font-family:var(--fd);font-weight:800;color:transparent;-webkit-text-stroke:1px var(--hair);font-size:24px}
 
 /* LOCATION (real map) */
-.mapwrap{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;height:128mm;margin-top:14px;background:var(--paper2)}
+.mapwrap{position:relative;border:1px solid var(--ink);outline:1px solid var(--line);outline-offset:4px;border-radius:14px;overflow:hidden;height:126mm;margin-top:16px;background:var(--paper2)}
 .mapwrap iframe{width:100%;height:100%;border:0;display:block}
 .map-print{display:none;width:100%;height:100%;object-fit:cover}
 .mapbadge{position:absolute;top:12px;inset-inline-start:12px;z-index:3;background:var(--ink);color:var(--paper);border-radius:999px;padding:5px 16px;font-size:11.5px;display:flex;gap:8px;align-items:center}
@@ -262,9 +278,9 @@ h2.big{font-size:27px;font-weight:800}
   </div>
   <span class="bignum en" aria-hidden="true">4.9</span>
   <div class="foot">
-    <span><b>الرياض</b> · حي القيروان، طريق الأمير سعود بن عبدالله</span>
-    <span>تقييم <b class="en">4.9</b> على خرائط قوقل</span>
-    <span class="en">2026</span>
+    <span><em>المدينة</em><b>الرياض · القيروان</b></span>
+    <span><em>تقييم العملاء</em><b><span class="en">4.9</span> على خرائط قوقل</b></span>
+    <span><em>الإصدار</em><b class="en">2026</b></span>
   </div>
 </section>
 
@@ -280,9 +296,9 @@ h2.big{font-size:27px;font-weight:800}
     <div class="toc-row"><span class="no en">02</span><b>خبراتنا وتخصصاتنا</b><span class="dots"></span><span class="pg en">04</span></div>
     <div class="toc-row"><span class="no en">03</span><b>خدماتنا</b><span class="dots"></span><span class="pg en">05</span></div>
     <div class="toc-row"><span class="no en">04</span><b>منهجية العمل وضمانات الجودة</b><span class="dots"></span><span class="pg en">06</span></div>
-    <div class="toc-row"><span class="no en">05</span><b>سابقة الأعمال</b><span class="dots"></span><span class="pg en">07</span></div>
-    <div class="toc-row"><span class="no en">06</span><b>موقعنا على الخريطة</b><span class="dots"></span><span class="pg en">08</span></div>
-    <div class="toc-row"><span class="no en">07</span><b>بيانات التواصل</b><span class="dots"></span><span class="pg en">09</span></div>
+    <div class="toc-row"><span class="no en">05</span><b>سابقة الأعمال</b><span class="dots"></span><span class="pg en">08</span></div>
+    <div class="toc-row"><span class="no en">06</span><b>موقعنا على الخريطة</b><span class="dots"></span><span class="pg en">09</span></div>
+    <div class="toc-row"><span class="no en">07</span><b>بيانات التواصل</b><span class="dots"></span><span class="pg en">10</span></div>
   </div>
   <div class="rv d2" style="margin-top:24px">
     <p class="klabel"><i></i>كلمة افتتاحية</p>
@@ -293,6 +309,7 @@ h2.big{font-size:27px;font-weight:800}
 
 <!-- ====== 3 · ABOUT ====== -->
 <section class="sheet" id="s-about">
+  <span class="ghost en" aria-hidden="true">01</span>
   <div class="shead"><b>استدامة البناء للاستشارات الهندسية</b><span>من نحن</span></div>
   <div class="rv">
     <p class="klabel"><i></i>من نحن</p>
@@ -317,6 +334,7 @@ h2.big{font-size:27px;font-weight:800}
 
 <!-- ====== 4 · EXPERIENCE ====== -->
 <section class="sheet" id="s-exp">
+  <span class="ghost en" aria-hidden="true">02</span>
   <div class="shead"><b>استدامة البناء للاستشارات الهندسية</b><span>الخبرات والتخصصات</span></div>
   <div class="rv">
     <p class="klabel"><i></i>خبراتنا وتخصصاتنا</p>
@@ -335,6 +353,7 @@ h2.big{font-size:27px;font-weight:800}
 
 <!-- ====== 5 · SERVICES ====== -->
 <section class="sheet" id="s-svc">
+  <span class="ghost en" aria-hidden="true">03</span>
   <div class="shead"><b>استدامة البناء للاستشارات الهندسية</b><span>خدماتنا</span></div>
   <div class="rv">
     <p class="klabel"><i></i>خدماتنا</p>
@@ -347,6 +366,7 @@ h2.big{font-size:27px;font-weight:800}
 
 <!-- ====== 6 · METHOD + GUARANTEES ====== -->
 <section class="sheet" id="s-method">
+  <span class="ghost en" aria-hidden="true">04</span>
   <div class="shead"><b>استدامة البناء للاستشارات الهندسية</b><span>منهجية العمل</span></div>
   <div class="rv">
     <p class="klabel"><i></i>منهجية العمل</p>
@@ -369,8 +389,23 @@ h2.big{font-size:27px;font-weight:800}
   <div class="pfoot"><span>استدامة البناء للاستشارات الهندسية · المنهجية</span><span class="en">06</span></div>
 </section>
 
-<!-- ====== 7 · WORKS ====== -->
+
+<!-- ====== 7 · DIVIDER ====== -->
+<section class="sheet divider">
+  <span class="bp" style="--hair:rgba(247,244,238,.16)"></span>
+  <span class="cross" style="top:20mm;inset-inline-start:18mm;color:rgba(247,244,238,.5)"></span>
+  <span class="cross" style="bottom:24mm;inset-inline-end:18mm;color:rgba(247,244,238,.5)"></span>
+  <div class="dv-mid">
+    <p class="dv-mark en">ESTIDAMA ALBENA</p>
+    <p class="dv-quote">نبني كما لو أننا<br />نبني لأنفسنا.</p>
+    <p class="dv-sub">هذا المعيار الذي نحاسب به كل مخطط نرسمه، وكل موقع نشرف عليه.</p>
+  </div>
+  <div class="pfoot" style="border-color:rgba(247,244,238,.25);color:rgba(247,244,238,.6)"><span>استدامة البناء للاستشارات الهندسية</span><span class="en" style="color:var(--paper)">07</span></div>
+</section>
+
+<!-- ====== 8 · WORKS ====== -->
 <section class="sheet" id="s-works">
+  <span class="ghost en" aria-hidden="true">05</span>
   <div class="shead"><b>استدامة البناء للاستشارات الهندسية</b><span>سابقة الأعمال</span></div>
   <figure class="banner gen rv"><span class="bcap en">ESTIDAMA ALBENA</span></figure>
   <div class="rv">
@@ -378,12 +413,13 @@ h2.big{font-size:27px;font-weight:800}
     <h2 class="big">نماذج مما نعمل عليه</h2>
     <p class="lead">تتنوع أعمالنا بين السكني والتجاري والإشراف والفحص الفني. هذه أبرز مجالات مشاريعنا:</p>
   </div>
-  <div class="works"><div class="wcard rv d0"><span class="wtag">تصميم وإشراف</span><b>فلل سكنية خاصة</b><p>من المخطط الأولي حتى تسليم المفتاح، بواجهات تعبّر عن أصحابها.</p><span class="wno en">01</span></div><div class="wcard rv d1"><span class="wtag">تصميم وإشراف</span><b>عمائر سكنية واستثمارية</b><p>استغلال أمثل للمساحات ورفع للعائد الاستثماري دون مساس بالجودة.</p><span class="wno en">02</span></div><div class="wcard rv d2"><span class="wtag">تصميم</span><b>مبانٍ تجارية ومعارض</b><p>واجهات وهويات معمارية تخدم النشاط التجاري وتجذب العميل.</p><span class="wno en">03</span></div><div class="wcard rv d0"><span class="wtag">إشراف</span><b>إشراف على مشاريع قائمة</b><p>ضبط تنفيذ وجودة لمشاريع صُممت لدى جهات أخرى.</p><span class="wno en">04</span></div><div class="wcard rv d1"><span class="wtag">فحص واعتماد</span><b>تقارير فنية وشهادات</b><p>تقارير سلامة إنشائية وشهادات إتمام معتمدة لدى الجهات.</p><span class="wno en">05</span></div><div class="wcard rv d2"><span class="wtag">تصميم وتنفيذ</span><b>تصميم داخلي وديكور</b><p>مساحات داخلية للمساكن والمكاتب تليق بأصحابها.</p><span class="wno en">06</span></div></div>
-  <div class="pfoot"><span>استدامة البناء للاستشارات الهندسية · سابقة الأعمال</span><span class="en">07</span></div>
+  <div class="works"><div class="wcard feat rv d0"><span class="wtag">تصميم وإشراف</span><b>فلل سكنية خاصة</b><p>من المخطط الأولي حتى تسليم المفتاح، بواجهات تعبّر عن أصحابها.</p><span class="wno en">01</span></div><div class="wcard rv d1"><span class="wtag">تصميم وإشراف</span><b>عمائر سكنية واستثمارية</b><p>استغلال أمثل للمساحات ورفع للعائد الاستثماري دون مساس بالجودة.</p><span class="wno en">02</span></div><div class="wcard rv d2"><span class="wtag">تصميم</span><b>مبانٍ تجارية ومعارض</b><p>واجهات وهويات معمارية تخدم النشاط التجاري وتجذب العميل.</p><span class="wno en">03</span></div><div class="wcard rv d0"><span class="wtag">إشراف</span><b>إشراف على مشاريع قائمة</b><p>ضبط تنفيذ وجودة لمشاريع صُممت لدى جهات أخرى.</p><span class="wno en">04</span></div><div class="wcard rv d1"><span class="wtag">فحص واعتماد</span><b>تقارير فنية وشهادات</b><p>تقارير سلامة إنشائية وشهادات إتمام معتمدة لدى الجهات.</p><span class="wno en">05</span></div><div class="wcard rv d2"><span class="wtag">تصميم وتنفيذ</span><b>تصميم داخلي وديكور</b><p>مساحات داخلية للمساكن والمكاتب تليق بأصحابها.</p><span class="wno en">06</span></div></div>
+  <div class="pfoot"><span>استدامة البناء للاستشارات الهندسية · سابقة الأعمال</span><span class="en">08</span></div>
 </section>
 
 <!-- ====== 8 · LOCATION (real map) ====== -->
 <section class="sheet" id="s-loc">
+  <span class="ghost en" aria-hidden="true">06</span>
   <div class="shead"><b>استدامة البناء للاستشارات الهندسية</b><span>موقعنا على الخريطة</span></div>
   <div class="rv">
     <p class="klabel"><i></i>موقعنا</p>
@@ -403,11 +439,12 @@ h2.big{font-size:27px;font-weight:800}
     <div><dt>نطاق الخدمة</dt><dd>الرياض والمناطق المحيطة</dd></div>
     <div><dt>رابط الخريطة</dt><dd class="en">maps.google.com/?q=24.8259058,46.5662597</dd></div>
   </div>
-  <div class="pfoot"><span>استدامة البناء للاستشارات الهندسية · الموقع</span><span class="en">08</span></div>
+  <div class="pfoot"><span>استدامة البناء للاستشارات الهندسية · الموقع</span><span class="en">09</span></div>
 </section>
 
 <!-- ====== 9 · CONTACT ====== -->
 <section class="sheet" id="s-contact">
+  <span class="ghost en" aria-hidden="true">07</span>
   <div class="shead"><b>استدامة البناء للاستشارات الهندسية</b><span>تواصل معنا</span></div>
   <div class="rv">
     <p class="klabel"><i></i>الخطوة التالية</p>
@@ -427,7 +464,7 @@ h2.big{font-size:27px;font-weight:800}
     </div>
     <div class="sig"><span>استدامة البناء للاستشارات الهندسية · ملف تعريفي 2026</span><span class="enmark" style="font-size:10px">ESTIDAMA ALBENA</span></div>
   </div>
-  <div class="pfoot"><span>استدامة البناء للاستشارات الهندسية · التواصل</span><span class="en">09</span></div>
+  <div class="pfoot"><span>استدامة البناء للاستشارات الهندسية · التواصل</span><span class="en">10</span></div>
 </section>
 
 <script>
