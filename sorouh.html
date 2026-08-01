@@ -21,8 +21,21 @@ body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:
 h1,h2,h3{font-family:var(--fd);line-height:1.45}
 a{color:inherit;text-decoration:none}
 
+/* screen-only topbar */
+.topbar{
+  position:fixed;top:0;inset-inline:0;z-index:50;
+  display:flex;align-items:center;gap:18px;
+  background:rgba(247,244,238,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding:10px min(4vw,28px);font-size:12.5px;
+}
+.topbar b{font-family:var(--fd);letter-spacing:.18em;font-size:12px;color:var(--ac)}
+.topbar nav{display:flex;gap:14px;margin-inline-start:auto;flex-wrap:wrap}
+.topbar a{color:var(--muted);font-weight:500;transition:color .25s}
+.topbar a:hover{color:var(--ink)}
+@media (max-width:700px){.topbar nav{display:none}}
+
 /* blueprint motif */
-.bp{position:absolute;inset:0;pointer-events:none;opacity:.5;
+.bp{position:absolute;inset:0;pointer-events:none;
   background:
    linear-gradient(var(--hair) 1px,transparent 1px) 0 0/100% 25%,
    linear-gradient(90deg,var(--hair) 1px,transparent 1px) 0 0/25% 100%;
@@ -34,20 +47,22 @@ a{color:inherit;text-decoration:none}
 .cross::after{inset-block:0;inset-inline-start:50%;width:1.5px}
 
 /* sheets */
-.sheet{position:relative;max-width:210mm;margin-inline:auto;padding:20mm 18mm;overflow:hidden;background:var(--paper)}
+.sheet{position:relative;max-width:210mm;margin-inline:auto;padding:18mm 17mm 14mm;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;min-height:80vh}
 .sheet + .sheet{border-top:1px solid var(--line)}
-.shead{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:26px;font-size:11.5px}
+.shead{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:22px;font-size:11.5px}
 .shead b{font-family:var(--fd)}
 .shead span{color:var(--muted)}
+.pfoot{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);color:var(--muted);font-size:10.5px}
+.pfoot .en{font-weight:700;color:var(--ink)}
 .klabel{display:inline-flex;align-items:center;gap:10px;color:var(--ac);font-family:var(--fd);font-weight:700;font-size:12.5px;margin-bottom:10px}
 .klabel i{font-style:normal;width:34px;height:1.5px;background:var(--ac);display:inline-block;transform-origin:inline-start}
-h2.big{font-size:29px;font-weight:800}
+h2.big{font-size:27px;font-weight:800}
 .lead{color:var(--muted);max-width:150mm;margin-top:6px}
 
-/* COVER (dark, artwork background) */
-.cover{min-height:290mm;display:flex;flex-direction:column;background:var(--ink);color:var(--paper)}
+/* COVER (dark, artwork) */
+.cover{min-height:290mm;background:var(--ink);color:var(--paper)}
 .coverbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.covergrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,16,.92) 6%,rgba(20,19,16,.45) 42%,rgba(20,19,16,.25) 70%,rgba(20,19,16,.55) 100%)}
+.covergrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,16,.94) 8%,rgba(20,19,16,.5) 44%,rgba(20,19,16,.22) 72%,rgba(20,19,16,.58) 100%)}
 .cover .genart{position:absolute;inset:0;background:
   radial-gradient(circle at 78% 18%,color-mix(in srgb,var(--ac) 36%,transparent),transparent 55%),
   radial-gradient(circle at 18% 85%,color-mix(in srgb,var(--ac) 26%,transparent),transparent 50%),
@@ -55,85 +70,101 @@ h2.big{font-size:29px;font-weight:800}
 .cover .genart svg{position:absolute;inset-inline-end:-8mm;bottom:-6mm;width:150mm;height:150mm;opacity:.5}
 .cover .top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
 .cover .chip{border:1.5px solid rgba(247,244,238,.75);border-radius:999px;padding:4px 16px;font-size:11.5px;font-weight:600}
-.cover .enmark{font-family:var(--fd);font-weight:800;letter-spacing:.34em;font-size:13px;color:var(--ac)}
-.cover .mid{margin:auto 0;position:relative;z-index:2;padding-block:30mm}
+.cover .enmark{font-family:var(--fd);font-weight:800;letter-spacing:.34em;font-size:13px;color:var(--ac);text-shadow:0 1px 10px rgba(20,19,16,.6)}
+.cover .mid{margin:auto 0;position:relative;z-index:2;padding-block:26mm}
 .cover .rule{width:70px;height:4px;background:var(--ac);margin-bottom:18px;transform-origin:inline-start}
-.cover h1{font-size:41px;font-weight:800;line-height:1.35;max-width:160mm}
-.cover h1 .thin{font-weight:300;display:block;font-size:23px;color:rgba(247,244,238,.75)}
-.cover .tag{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:18px;margin-top:12px;
-  text-shadow:0 1px 14px rgba(20,19,16,.55)}
-.cover .tag.lightac{color:color-mix(in srgb,var(--ac) 55%,#fff)}
-.cover .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;position:relative;z-index:2;border-top:1px solid rgba(247,244,238,.3);padding-top:12px;font-size:12px;color:rgba(247,244,238,.8)}
+.cover h1{font-size:40px;font-weight:800;line-height:1.35;max-width:160mm;text-shadow:0 2px 20px rgba(20,19,16,.5)}
+.cover h1 .thin{font-weight:300;display:block;font-size:22px;color:rgba(247,244,238,.8)}
+.cover .tag{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:18px;margin-top:12px;text-shadow:0 1px 14px rgba(20,19,16,.65)}
+.cover .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;position:relative;z-index:2;border-top:1px solid rgba(247,244,238,.3);padding-top:12px;font-size:12px;color:rgba(247,244,238,.85)}
 .cover .foot b{color:var(--paper)}
-.bignum{position:absolute;inset-inline-end:8mm;bottom:22mm;font-family:var(--fd);font-weight:800;font-size:130px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(247,244,238,.3);z-index:1;letter-spacing:.03em}
+.bignum{position:absolute;inset-inline-end:8mm;bottom:20mm;font-family:var(--fd);font-weight:800;font-size:120px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(247,244,238,.32);z-index:1;letter-spacing:.03em}
 
-/* about + experience */
-.word{border-inline-start:4px solid var(--ac);padding:4px 18px;margin-top:10px;font-size:15px;max-width:158mm}
-.vmrow{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:22px;border-top:1px solid var(--line)}
+/* TOC */
+.toc{margin-top:8px}
+.toc-row{display:flex;align-items:baseline;gap:12px;padding-block:11px;border-bottom:1px solid var(--line);font-size:14px}
+.toc-row .no{font-family:var(--fd);font-weight:800;color:var(--ac);min-width:28px;font-size:13px}
+.toc-row b{font-family:var(--fd);font-weight:700}
+.toc-row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
+.toc-row .pg{font-family:var(--fd);font-weight:700;color:var(--muted);font-size:12.5px}
+.word{border-inline-start:4px solid var(--ac);padding:4px 18px;margin-top:10px;font-size:14.5px;max-width:158mm}
+
+/* about */
+.vmrow{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:20px;border-top:1px solid var(--line)}
 .vmrow>div{padding-top:14px}
 .vmrow h3{color:var(--ac);font-size:15.5px;margin-bottom:4px}
-.exp{margin-top:26px}
-.exrow{display:grid;grid-template-columns:1fr 1.4fr;gap:16px;align-items:baseline;padding-block:11px;border-bottom:1px solid var(--line)}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.vals .v{background:var(--ink);color:var(--paper);border-radius:12px;padding:13px 13px}
+.vals .v b{display:block;color:var(--ac);font-family:var(--fd);font-size:13.5px;margin-bottom:2px}
+.vals .v span{font-size:10.8px;color:rgba(247,244,238,.8);line-height:1.65;display:block}
+
+/* experience */
+.exrow{display:grid;grid-template-columns:1fr 1.4fr;gap:16px;align-items:baseline;padding-block:12px;border-bottom:1px solid var(--line)}
 .exrow b{font-family:var(--fd);font-size:14.5px}
 .exrow span{color:var(--muted);font-size:12.5px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
-.stat{border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:center;background:#fff}
-.stat b{font-family:var(--fd);font-weight:800;font-size:27px;color:var(--ac);display:block;line-height:1.35}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.stat{border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center;background:#fff}
+.stat b{font-family:var(--fd);font-weight:800;font-size:26px;color:var(--ac);display:block;line-height:1.35}
 .stat span{color:var(--muted);font-size:11.5px}
+.certline{margin-top:22px;border:1px dashed var(--line);border-radius:12px;padding:13px 18px;color:var(--muted);font-size:12.5px;background:var(--paper2)}
+.certline b{color:var(--ink)}
 
-/* services rows */
-.srow{display:flex;gap:16px;align-items:flex-start;padding-block:14px;position:relative}
+/* services */
+.srow{display:flex;gap:16px;align-items:flex-start;padding-block:13px;position:relative}
 .srow .sline{position:absolute;bottom:0;inset-inline:0;height:1px;background:var(--line);transform-origin:inline-start}
 .sno{font-family:var(--fd);font-weight:800;color:var(--ac);font-size:14px;min-width:30px;padding-top:2px}
-.srow b{font-family:var(--fd);font-size:15.5px;display:block}
-.srow div span{color:var(--muted);font-size:12.5px;display:block}
+.srow b{font-family:var(--fd);font-size:15px;display:block}
+.srow div span{color:var(--muted);font-size:12.3px;display:block}
 
-/* works banner */
-.banner{position:relative;height:52mm;border-radius:14px;overflow:hidden;margin-bottom:22px}
+/* methodology */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.steps .st{background:#fff;border:1px solid var(--line);border-top:3px solid var(--ac);border-radius:12px;padding:15px 16px}
+.steps .st i{font-style:normal;font-family:var(--fd);font-weight:800;font-size:20px;color:transparent;-webkit-text-stroke:1.2px var(--ac)}
+.steps .st b{display:block;font-family:var(--fd);font-size:14px;margin:4px 0 2px}
+.steps .st span{font-size:11.8px;color:var(--muted);line-height:1.7;display:block}
+.gpanel{margin-top:22px;background:var(--ink);color:var(--paper);border-radius:14px;padding:18px 20px}
+.gpanel h3{color:var(--ac);font-size:15px;margin-bottom:8px}
+.gpanel ul{list-style:none;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.gpanel li{font-size:12px;color:rgba(247,244,238,.85);line-height:1.7;border-inline-start:2px solid var(--ac);padding-inline-start:10px}
+.gpanel li b{display:block;color:var(--paper);font-family:var(--fd);font-size:12.5px}
+
+/* works */
+.banner{position:relative;height:46mm;border-radius:14px;overflow:hidden;margin-bottom:20px}
 .banner img{width:100%;height:100%;object-fit:cover}
 .banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,color-mix(in srgb,var(--ac) 55%,rgba(20,19,16,.75)),transparent 65%);mix-blend-mode:multiply}
 .banner .bcap{position:absolute;bottom:10px;inset-inline-start:16px;z-index:2;color:#fff;font-size:11px;letter-spacing:.22em;font-family:var(--fd);font-weight:700}
 .banner.gen{background:
   radial-gradient(circle at 80% 20%,color-mix(in srgb,var(--ac) 40%,transparent),transparent 55%),
   linear-gradient(160deg,#0E1F19,#123126)}
-
-/* works */
-.works{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
-.wcard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:16px;position:relative;min-height:150px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
+.works{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px}
+.wcard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:15px;position:relative;min-height:140px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
 .wcard:hover{transform:translateY(-5px);box-shadow:0 18px 34px -18px rgba(27,26,23,.25)}
 .wtag{align-self:flex-start;background:var(--paper2);border-radius:999px;font-size:10.5px;color:var(--muted);padding:2px 10px;margin-bottom:8px}
-.wcard b{font-family:var(--fd);font-size:14.5px}
-.wcard p{color:var(--muted);font-size:11.8px;margin-top:4px;line-height:1.7}
-.wno{position:absolute;bottom:10px;inset-inline-end:14px;font-family:var(--fd);font-weight:800;color:transparent;-webkit-text-stroke:1px var(--hair);font-size:26px}
+.wcard b{font-family:var(--fd);font-size:14px}
+.wcard p{color:var(--muted);font-size:11.6px;margin-top:4px;line-height:1.7}
+.wno{position:absolute;bottom:8px;inset-inline-end:13px;font-family:var(--fd);font-weight:800;color:transparent;-webkit-text-stroke:1px var(--hair);font-size:24px}
 
-/* city page */
-.citywrap{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;margin-top:8px}
-.cityname{font-family:var(--fd);font-weight:800;font-size:64px;line-height:1.2}
-.cityname small{display:block;font-size:16px;font-weight:500;color:var(--muted)}
-.citymeta{margin-top:14px;border-top:1px solid var(--line)}
-.citymeta div{display:flex;gap:12px;padding-block:10px;border-bottom:1px solid var(--line);font-size:13px}
-.citymeta dt{color:var(--muted);min-width:86px}
-.map{position:relative;aspect-ratio:1/1.05;border:1px solid var(--line);border-radius:14px;background:
-  radial-gradient(circle at 52% 46%,rgba(0,0,0,.045),transparent 55%),
-  linear-gradient(var(--hair) 1px,transparent 1px) 0 0/100% 12.5%,
-  linear-gradient(90deg,var(--hair) 1px,transparent 1px) 0 0/12.5% 100%,#FBF9F4;overflow:hidden}
-.map .ring{position:absolute;inset-inline-start:50%;top:44%;width:120px;height:120px;border:1.5px solid var(--ac);border-radius:50%;transform:translate(50%,-50%);opacity:.4}
-.map .ring.r2{width:190px;height:190px;opacity:.2}
-.map .pin{position:absolute;inset-inline-start:50%;top:44%;transform:translate(50%,-50%);text-align:center}
-.map .pin svg{width:34px;height:34px;color:var(--ac);filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
-.map .pin b{display:block;font-family:var(--fd);font-size:13px;background:var(--ink);color:var(--paper);border-radius:999px;padding:2px 12px;margin-top:4px;white-space:nowrap}
-.map .lbl{position:absolute;bottom:12px;inset-inline-start:14px;font-size:10.5px;color:var(--muted);letter-spacing:.2em}
+/* LOCATION (real map) */
+.mapwrap{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;height:128mm;margin-top:14px;background:var(--paper2)}
+.mapwrap iframe{width:100%;height:100%;border:0;display:block}
+.map-print{display:none;width:100%;height:100%;object-fit:cover}
+.mapbadge{position:absolute;top:12px;inset-inline-start:12px;z-index:3;background:var(--ink);color:var(--paper);border-radius:999px;padding:5px 16px;font-size:11.5px;display:flex;gap:8px;align-items:center}
+.mapbadge svg{width:14px;height:14px;color:var(--ac)}
+.locrows{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:16px}
+.locrows div{display:flex;gap:12px;padding-block:9px;border-bottom:1px solid var(--line);font-size:12.8px}
+.locrows dt{color:var(--muted);min-width:92px}
+.locrows dd.en{direction:ltr;text-align:end}
 
 /* contact */
-.contact{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px 28px;margin-top:26px;position:relative;overflow:hidden}
+.contact{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px 26px;margin-top:20px;position:relative;overflow:hidden}
 .contact .cp{position:absolute;inset:0;opacity:.1;background:
   linear-gradient(rgba(247,244,238,.5) 1px,transparent 1px) 0 0/100% 25%,
   linear-gradient(90deg,rgba(247,244,238,.5) 1px,transparent 1px) 0 0/25% 100%}
-.contact h2{color:var(--ac);font-size:21px;margin-bottom:12px;position:relative}
+.contact h2{color:var(--ac);font-size:20px;margin-bottom:12px;position:relative}
 .crows{display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;position:relative;font-size:13.5px}
 .crow{display:flex;gap:10px}
 .crow dt{color:var(--ac);min-width:104px;font-size:12px;padding-top:2px}
-.sig{display:flex;justify-content:space-between;align-items:center;margin-top:20px;color:var(--muted);font-size:11px;border-top:1px solid var(--line);padding-top:10px}
+.sig{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:var(--muted);font-size:11px;border-top:1px solid rgba(247,244,238,.2);padding-top:10px;position:relative}
 
 /* ---------- motion (screen only) ---------- */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s var(--ease)}
@@ -148,12 +179,8 @@ h2.big{font-size:29px;font-weight:800}
 .rv.in .sline{transform:scaleX(1)}
 .klabel i{transform:scaleX(0);transition:transform .7s var(--ease) .1s}
 .rv.in .klabel i,.play .klabel i{transform:none}
-.map .ring{animation:pulse 3s ease-out infinite}
-.map .ring.r2{animation-delay:1.5s}
-@keyframes pulse{0%{transform:translate(50%,-50%) scale(.7);opacity:.5}100%{transform:translate(50%,-50%) scale(1.15);opacity:0}}
 .cross{animation:blink 3.4s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:.25}50%{opacity:.9}}
-
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
   .rv{opacity:1!important;transform:none!important}
@@ -163,40 +190,59 @@ h2.big{font-size:29px;font-weight:800}
 
 /* ---------- mobile ---------- */
 @media (max-width:760px){
-  .sheet{padding:14mm 7vw}
-  .cover{min-height:100svh}
-  .cover h1{font-size:29px}
-  .bignum{font-size:72px;bottom:34mm}
-  .vmrow,.crows{grid-template-columns:1fr}
+  .sheet{padding:14mm 6vw;min-height:0}
+  body{padding-top:44px}
+  .cover h1{font-size:28px}
+  .bignum{font-size:64px;bottom:32mm}
+  .vmrow,.crows,.locrows{grid-template-columns:1fr}
   .works{grid-template-columns:1fr 1fr}
-  .citywrap{grid-template-columns:1fr}
-  .cityname{font-size:44px}
+  .steps{grid-template-columns:1fr}
+  .gpanel ul{grid-template-columns:1fr}
+  .vals{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
-  .stat b{font-size:20px}
+  .stat b{font-size:19px}
   .exrow{grid-template-columns:1fr;gap:2px}
+  .mapwrap{height:72vw}
 }
 @media (max-width:460px){.works{grid-template-columns:1fr}}
 
 /* ---------- print / PDF ---------- */
 @page{size:A4;margin:0}
 @media print{
-  body{background:#fff}
-  .sheet{width:210mm;height:296mm;max-width:none;padding:16mm 16mm;page-break-after:always;border:none!important}
+  body{background:#fff;padding-top:0}
+  .topbar{display:none}
+  .sheet{width:210mm;height:296mm;max-width:none;padding:15mm 15mm 12mm;page-break-after:always;border:none!important;min-height:0}
   .sheet:last-child{page-break-after:auto}
   .cover{min-height:0;height:296mm}
   .rv{opacity:1!important;transform:none!important}
   .hlx>span{transform:none!important}
   .sline{transform:none!important}
   .klabel i{transform:none!important}
-  .cross,.map .ring{animation:none!important}
+  .cross{animation:none!important}
   .wcard:hover{transform:none;box-shadow:none}
-  .stats{margin-top:20px}
+  .map-live{display:none!important}
+  .map-print{display:block!important}
+  .mapwrap{height:120mm}
 }
 </style>
 </head>
 <body>
 
-<!-- ============ COVER ============ -->
+<!-- screen-only site nav -->
+<header class="topbar">
+  <b class="en">SOROUH ALBENA</b>
+  <nav>
+    <a href="#s-about">من نحن</a>
+    <a href="#s-exp">الخبرات</a>
+    <a href="#s-svc">الخدمات</a>
+    <a href="#s-method">المنهجية</a>
+    <a href="#s-works">الأعمال</a>
+    <a href="#s-loc">الموقع</a>
+    <a href="#s-contact">تواصل</a>
+  </nav>
+</header>
+
+<!-- ====== 1 · COVER ====== -->
 <section class="sheet cover">
   <img class="coverbg" src="img/sorouh.jpg" alt="" /><span class="covergrad"></span>
   <span class="bp" style="--hair:rgba(247,244,238,.2)"></span>
@@ -222,50 +268,109 @@ h2.big{font-size:29px;font-weight:800}
   </div>
 </section>
 
-<!-- ============ ABOUT + EXPERIENCE ============ -->
+<!-- ====== 2 · TOC + WORD ====== -->
 <section class="sheet">
-  <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>من نحن · الخبرات</span></div>
-
+  <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>المحتويات</span></div>
   <div class="rv">
-    <p class="klabel"><i></i>كلمة افتتاحية</p>
-    <p class="word">نضع بين أيديكم ملفنا التعريفي، وفيه من نحن، وما نتقنه، وكيف نعمل. نؤمن أن كل مشروع يبدأ بثقة، وأن الثقة تُبنى بالإتقان والوضوح والالتزام.</p>
+    <p class="klabel"><i></i>محتويات الملف</p>
+    <h2 class="big">دليلك داخل هذا الملف</h2>
   </div>
+  <div class="toc rv d1">
+    <div class="toc-row"><span class="no en">01</span><b>من نحن</b><span class="dots"></span><span class="pg en">03</span></div>
+    <div class="toc-row"><span class="no en">02</span><b>خبراتنا وتخصصاتنا</b><span class="dots"></span><span class="pg en">04</span></div>
+    <div class="toc-row"><span class="no en">03</span><b>خدماتنا</b><span class="dots"></span><span class="pg en">05</span></div>
+    <div class="toc-row"><span class="no en">04</span><b>منهجية العمل وضمانات الجودة</b><span class="dots"></span><span class="pg en">06</span></div>
+    <div class="toc-row"><span class="no en">05</span><b>سابقة الأعمال</b><span class="dots"></span><span class="pg en">07</span></div>
+    <div class="toc-row"><span class="no en">06</span><b>موقعنا على الخريطة</b><span class="dots"></span><span class="pg en">08</span></div>
+    <div class="toc-row"><span class="no en">07</span><b>بيانات التواصل</b><span class="dots"></span><span class="pg en">09</span></div>
+  </div>
+  <div class="rv d2" style="margin-top:24px">
+    <p class="klabel"><i></i>كلمة افتتاحية</p>
+    <p class="word">نضع بين أيديكم ملفنا التعريفي، وفيه من نحن، وما نتقنه، وكيف نعمل. نؤمن أن كل مشروع يبدأ بثقة، وأن الثقة تُبنى بالإتقان والوضوح والالتزام، وهذا ما نجدده مع كل عميل وفي كل مشروع.</p>
+  </div>
+  <div class="pfoot"><span>شركة صروح البناء للاستشارات الهندسية · ملف تعريفي 2026</span><span class="en">02</span></div>
+</section>
 
-  <div class="rv d1" style="margin-top:26px">
+<!-- ====== 3 · ABOUT ====== -->
+<section class="sheet" id="s-about">
+  <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>من نحن</span></div>
+  <div class="rv">
     <p class="klabel"><i></i>من نحن</p>
     <h2 class="big">مكتب هندسي سعودي، من الرياض وإليها</h2>
     <p class="lead">شركة صروح البناء للاستشارات الهندسية يعمل من حي الأمير، طريق الإمام سعود بن فيصل في الرياض، ويقدم حلولًا هندسية متكاملة من التصميم حتى التسليم، وفق كود البناء السعودي والأنظمة المحلية. حاز ثقة عملائه بتقييم <b class="en">4.8</b> على خرائط قوقل، وهي ثقة نجددها في كل مشروع.</p>
-    <div class="vmrow">
-      <div><h3>رؤيتنا</h3><p class="lead" style="max-width:none">أن نكون خيارًا أول في قطاع الاستشارات الهندسية بالمملكة، بحلول ترتقي إلى تطلعات رؤية 2030.</p></div>
-      <div><h3>رسالتنا</h3><p class="lead" style="max-width:none">خدمات هندسية دقيقة وموثوقة تحقق تطلعات عملائنا وتحمي استثماراتهم، بالتزام بالجودة والمواعيد.</p></div>
+  </div>
+  <div class="vmrow rv d1">
+    <div><h3>رؤيتنا</h3><p class="lead" style="max-width:none">أن نكون خيارًا أول في قطاع الاستشارات الهندسية بالمملكة، بحلول ترتقي إلى تطلعات رؤية 2030 وتليق بعمرانها المتسارع.</p></div>
+    <div><h3>رسالتنا</h3><p class="lead" style="max-width:none">تقديم خدمات هندسية دقيقة وموثوقة تحقق تطلعات عملائنا وتحمي استثماراتهم، بالتزام تام بالجودة والمواعيد.</p></div>
+  </div>
+  <div class="rv d2" style="margin-top:22px">
+    <p class="klabel"><i></i>قيمنا</p>
+    <div class="vals">
+      <div class="v"><b>الإتقان</b><span>الجودة منهج عمل في كل تفصيلة.</span></div>
+      <div class="v"><b>الأمانة</b><span>وضوح كامل في التعامل والتكلفة والمواعيد.</span></div>
+      <div class="v"><b>الالتزام</b><span>نحترم الوقت ونلتزم بما نعِد به.</span></div>
+      <div class="v"><b>الشراكة</b><span>ننجح حين يرى عملاؤنا مشاريعهم كما حلموا بها.</span></div>
     </div>
   </div>
+  <div class="pfoot"><span>شركة صروح البناء للاستشارات الهندسية · من نحن</span><span class="en">03</span></div>
+</section>
 
-  <div class="exp rv d1">
+<!-- ====== 4 · EXPERIENCE ====== -->
+<section class="sheet" id="s-exp">
+  <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>الخبرات والتخصصات</span></div>
+  <div class="rv">
     <p class="klabel"><i></i>خبراتنا وتخصصاتنا</p>
-    <div class="exrow rv"><b>الهندسة المعمارية</b><span>تصميم وواجهات وهوية عمرانية</span></div><div class="exrow rv"><b>الهندسة الإنشائية</b><span>أنظمة إنشائية آمنة واقتصادية</span></div><div class="exrow rv"><b>الكهرباء والميكانيكا</b><span>أنظمة MEP متكاملة</span></div><div class="exrow rv"><b>المساحة والرفع المساحي</b><span>دقة القياس أساس كل قرار</span></div><div class="exrow rv"><b>السلامة والاشتراطات</b><span>توافق كامل مع اشتراطات الدفاع المدني</span></div>
+    <h2 class="big">فريق واحد، تخصصات متكاملة</h2>
+    <p class="lead">تتكامل تخصصاتنا لتغطية المشروع من كل جوانبه، بلا وسطاء وبلا فجوات بين التصميم والتنفيذ.</p>
   </div>
-
+  <div class="rv d1" style="margin-top:10px"><div class="exrow rv"><b>الهندسة المعمارية</b><span>تصميم وواجهات وهوية عمرانية</span></div><div class="exrow rv"><b>الهندسة الإنشائية</b><span>أنظمة إنشائية آمنة واقتصادية</span></div><div class="exrow rv"><b>الكهرباء والميكانيكا</b><span>أنظمة MEP متكاملة</span></div><div class="exrow rv"><b>المساحة والرفع المساحي</b><span>دقة القياس أساس كل قرار</span></div><div class="exrow rv"><b>السلامة والاشتراطات</b><span>توافق كامل مع اشتراطات الدفاع المدني</span></div></div>
   <div class="stats">
     <div class="stat rv"><b class="en" data-count="4.8" data-dec="1">4.8</b><span>تقييم عملائنا على قوقل</span></div>
     <div class="stat rv d1"><b>الرياض</b><span>نخدم الرياض وما حولها</span></div>
     <div class="stat rv d2"><b>شامل</b><span>من الفكرة حتى التسليم</span></div>
   </div>
+  <p class="certline rv d2"><b>التزام نظامي:</b> نعمل وفق كود البناء السعودي واشتراطات الأمانات والدفاع المدني، وبفريق هندسي مؤهل في كل تخصص.</p>
+  <div class="pfoot"><span>شركة صروح البناء للاستشارات الهندسية · الخبرات</span><span class="en">04</span></div>
 </section>
 
-<!-- ============ SERVICES ============ -->
-<section class="sheet">
+<!-- ====== 5 · SERVICES ====== -->
+<section class="sheet" id="s-svc">
   <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>خدماتنا</span></div>
   <div class="rv">
     <p class="klabel"><i></i>خدماتنا</p>
     <h2 class="big">منظومة خدمات تغطي المشروع كاملًا</h2>
   </div>
-  <div style="margin-top:14px"><div class="srow rv"><span class="sno en">01</span><div><b>التصميم المعماري والإنشائي</b><span>مخططات متكاملة تُراعي وظيفة المبنى وهويته، وفق كود البناء السعودي.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">02</span><div><b>الإشراف الهندسي على التنفيذ</b><span>متابعة ميدانية دقيقة وضبط جودة ومطابقة للمخططات المعتمدة.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">03</span><div><b>رخص البناء والتعاملات البلدية</b><span>إنهاء الرخص والتقارير أمام الجهات البلدية بسرعة وموثوقية.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">04</span><div><b>التقارير الفنية وشهادات الإتمام</b><span>فحص فني معتمد وإصدار التقارير والشهادات النظامية.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">05</span><div><b>التصميم الداخلي والديكور</b><span>حلول داخلية تجمع الجمال والوظيفة للمساكن والمكاتب والمعارض.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">06</span><div><b>الدراسات والاستشارات الهندسية</b><span>دراسات فنية تسبق قرار البناء وتحمي الاستثمار.</span></div><i class="sline"></i></div></div>
-  <p class="lead rv" style="margin-top:22px">لكل خدمة نطاق عمل واضح وتسعير شفاف يُتفق عليه قبل البدء، ومخرجات محددة يعرفها العميل سلفًا.</p>
+  <div style="margin-top:10px"><div class="srow rv"><span class="sno en">01</span><div><b>التصميم المعماري والإنشائي</b><span>مخططات متكاملة تُراعي وظيفة المبنى وهويته، وفق كود البناء السعودي.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">02</span><div><b>الإشراف الهندسي على التنفيذ</b><span>متابعة ميدانية دقيقة وضبط جودة ومطابقة للمخططات المعتمدة.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">03</span><div><b>رخص البناء والتعاملات البلدية</b><span>إنهاء الرخص والتقارير أمام الجهات البلدية بسرعة وموثوقية.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">04</span><div><b>التقارير الفنية وشهادات الإتمام</b><span>فحص فني معتمد وإصدار التقارير والشهادات النظامية.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">05</span><div><b>التصميم الداخلي والديكور</b><span>حلول داخلية تجمع الجمال والوظيفة للمساكن والمكاتب والمعارض.</span></div><i class="sline"></i></div><div class="srow rv"><span class="sno en">06</span><div><b>الدراسات والاستشارات الهندسية</b><span>دراسات فنية تسبق قرار البناء وتحمي الاستثمار.</span></div><i class="sline"></i></div></div>
+  <p class="lead rv" style="margin-top:18px">لكل خدمة نطاق عمل واضح وتسعير شفاف يُتفق عليه قبل البدء، ومخرجات محددة يعرفها العميل سلفًا.</p>
+  <div class="pfoot"><span>شركة صروح البناء للاستشارات الهندسية · خدماتنا</span><span class="en">05</span></div>
 </section>
 
-<!-- ============ WORKS ============ -->
-<section class="sheet">
+<!-- ====== 6 · METHOD + GUARANTEES ====== -->
+<section class="sheet" id="s-method">
+  <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>منهجية العمل</span></div>
+  <div class="rv">
+    <p class="klabel"><i></i>منهجية العمل</p>
+    <h2 class="big">أربع خطوات، بلا مفاجآت</h2>
+  </div>
+  <div class="steps">
+    <div class="st rv"><i class="en">01</i><b>الاستماع وفهم المتطلبات</b><span>نبدأ من احتياج العميل وتطلعاته، ونحدد نطاق العمل بوضوح كامل.</span></div>
+    <div class="st rv d1"><i class="en">02</i><b>الدراسة ووضع الحلول</b><span>نحلل الموقع والمتطلبات، ونقدم الحلول الهندسية الأنسب كلفةً وجودة.</span></div>
+    <div class="st rv"><i class="en">03</i><b>التصميم والاعتماد</b><span>نطور التصاميم بمشاركة العميل حتى الاعتماد النهائي واستخراج الرخص.</span></div>
+    <div class="st rv d1"><i class="en">04</i><b>التنفيذ والتسليم</b><span>نشرف على التنفيذ حتى التسليم، بالتزام تام بالجودة والمواعيد.</span></div>
+  </div>
+  <div class="gpanel rv d2">
+    <h3>ضمانات نلتزم بها في كل مشروع</h3>
+    <ul>
+      <li><b>وضوح قبل البدء</b>نطاق وتكلفة ومدة مكتوبة ومتفق عليها.</li>
+      <li><b>تقارير دورية</b>تحديثات مستمرة بمستجدات العمل والقرارات.</li>
+      <li><b>مسؤولية بعد التسليم</b>نبقى معك للملاحظات بعد إغلاق المشروع.</li>
+    </ul>
+  </div>
+  <div class="pfoot"><span>شركة صروح البناء للاستشارات الهندسية · المنهجية</span><span class="en">06</span></div>
+</section>
+
+<!-- ====== 7 · WORKS ====== -->
+<section class="sheet" id="s-works">
   <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>سابقة الأعمال</span></div>
   <figure class="banner rv"><img src="img/sorouh.jpg" alt="" /><span class="bcap en">SOROUH ALBENA</span></figure>
   <div class="rv">
@@ -274,37 +379,35 @@ h2.big{font-size:29px;font-weight:800}
     <p class="lead">تتنوع أعمالنا بين السكني والتجاري والإشراف والفحص الفني. هذه أبرز مجالات مشاريعنا:</p>
   </div>
   <div class="works"><div class="wcard rv d0"><span class="wtag">تصميم وإشراف</span><b>فلل سكنية خاصة</b><p>من المخطط الأولي حتى تسليم المفتاح، بواجهات تعبّر عن أصحابها.</p><span class="wno en">01</span></div><div class="wcard rv d1"><span class="wtag">تصميم وإشراف</span><b>عمائر سكنية واستثمارية</b><p>استغلال أمثل للمساحات ورفع للعائد الاستثماري دون مساس بالجودة.</p><span class="wno en">02</span></div><div class="wcard rv d2"><span class="wtag">تصميم</span><b>مبانٍ تجارية ومعارض</b><p>واجهات وهويات معمارية تخدم النشاط التجاري وتجذب العميل.</p><span class="wno en">03</span></div><div class="wcard rv d0"><span class="wtag">إشراف</span><b>إشراف على مشاريع قائمة</b><p>ضبط تنفيذ وجودة لمشاريع صُممت لدى جهات أخرى.</p><span class="wno en">04</span></div><div class="wcard rv d1"><span class="wtag">فحص واعتماد</span><b>تقارير فنية وشهادات</b><p>تقارير سلامة إنشائية وشهادات إتمام معتمدة لدى الجهات.</p><span class="wno en">05</span></div><div class="wcard rv d2"><span class="wtag">تصميم وتنفيذ</span><b>تصميم داخلي وديكور</b><p>مساحات داخلية للمساكن والمكاتب تليق بأصحابها.</p><span class="wno en">06</span></div></div>
+  <div class="pfoot"><span>شركة صروح البناء للاستشارات الهندسية · سابقة الأعمال</span><span class="en">07</span></div>
 </section>
 
-<!-- ============ CITY + LOCATION ============ -->
-<section class="sheet">
-  <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>المدينة والموقع</span></div>
+<!-- ====== 8 · LOCATION (real map) ====== -->
+<section class="sheet" id="s-loc">
+  <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>موقعنا على الخريطة</span></div>
   <div class="rv">
     <p class="klabel"><i></i>موقعنا</p>
+    <h2 class="big">الرياض · الأمير</h2>
   </div>
-  <div class="citywrap">
-    <div class="rv">
-      <p class="cityname">الرياض<small>حي الأمير، طريق الإمام سعود بن فيصل</small></p>
-      <div class="citymeta">
-        <div><dt>نطاق الخدمة</dt><dd>الرياض والمناطق المحيطة بها</dd></div>
-        <div><dt>الاستجابة</dt><dd>رد سريع عبر واتساب خلال ساعات العمل</dd></div>
-        <div><dt>المعاينة</dt><dd>زيارات ميدانية للمواقع داخل الرياض</dd></div>
-        <div><dt>قوقل ماب</dt><dd>صروح البناء · تقييم <b class="en">4.8</b></dd></div>
-      </div>
-    </div>
-    <div class="map rv d1">
-      <span class="ring"></span><span class="ring r2"></span>
-      <span class="pin">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <b>صروح البناء</b>
-      </span>
-      <span class="lbl en">الرياض · GRID</span>
-    </div>
+  <div class="mapwrap rv d1">
+    <span class="mapbadge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      صروح البناء
+    </span>
+    <iframe class="map-live" title="موقع صروح البناء على خرائط قوقل" src="https://maps.google.com/maps?q=24.7924983,46.6263126&z=15&hl=ar&output=embed" loading="lazy"></iframe>
+    <img class="map-print" src="img/map-sorouh.jpg" alt="خريطة موقع صروح البناء في الرياض" />
   </div>
+  <div class="locrows rv d2">
+    <div><dt>العنوان</dt><dd>حي الأمير، طريق الإمام سعود بن فيصل، الرياض</dd></div>
+    <div><dt>الإحداثيات</dt><dd class="en">24.7924983, 46.6263126</dd></div>
+    <div><dt>نطاق الخدمة</dt><dd>الرياض والمناطق المحيطة</dd></div>
+    <div><dt>رابط الخريطة</dt><dd class="en">maps.google.com/?q=24.7924983,46.6263126</dd></div>
+  </div>
+  <div class="pfoot"><span>شركة صروح البناء للاستشارات الهندسية · الموقع</span><span class="en">08</span></div>
 </section>
 
-<!-- ============ CONTACT ============ -->
-<section class="sheet">
+<!-- ====== 9 · CONTACT ====== -->
+<section class="sheet" id="s-contact">
   <div class="shead"><b>شركة صروح البناء للاستشارات الهندسية</b><span>تواصل معنا</span></div>
   <div class="rv">
     <p class="klabel"><i></i>الخطوة التالية</p>
@@ -324,6 +427,7 @@ h2.big{font-size:29px;font-weight:800}
     </div>
     <div class="sig"><span>شركة صروح البناء للاستشارات الهندسية · ملف تعريفي 2026</span><span class="enmark" style="font-size:10px">SOROUH ALBENA</span></div>
   </div>
+  <div class="pfoot"><span>شركة صروح البناء للاستشارات الهندسية · التواصل</span><span class="en">09</span></div>
 </section>
 
 <script>
@@ -338,7 +442,6 @@ h2.big{font-size:29px;font-weight:800}
     els.forEach(function(el){ io.observe(el); });
   }catch(e){ els.forEach(function(el){ el.classList.add('in'); }); }
   setTimeout(function(){ els.forEach(function(el){ el.classList.add('in'); }); },2600);
-  // count-up
   var cs=document.querySelectorAll('[data-count]');
   function run(el){
     var t=parseFloat(el.getAttribute('data-count')),d=parseInt(el.getAttribute('data-dec')||'0',10),s=null,D=1400;
